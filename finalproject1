@@ -1,41 +1,41 @@
 #include <stdio.h>
- 
- //variables
+
+// variables
 struct train
 {
- char name1[25];
- char age[25];
- char mob[25];
- char upp[25];
- char ch3[20];
+  char name1[25];
+  char age[25];
+  char mob[25];
+  char upp[25];
+  char ch3[20];
   char ch4[20];
   char code[20];
   char f1[10];
-}a1;
+} a1;
 //--------------------------------------
-//used in delete declartion must in function at top otherwise error occur
+// used in delete declartion must in function at top otherwise error occur
 void strcpy();
 //--------------------------------
-struct per 
+struct per
 {
   char namei[18];
   char agei[16];
   char codei[21];
   char ph[28];
 };
- //-----------------------------------------------------
- //used for show record of trains /histrory of saved book trains
+//-----------------------------------------------------
+// used for show record of trains /histrory of saved book trains
 
-  void show_record();
+void show_record();
 //---------------------------------------------------
- //variabls for username and password structure
+// variabls for username and password structure
 struct login
 {
- char name[20];
- char pass[20];
-}n1;
+  char name[20];
+  char pass[20];
+} n1;
 //------------------------------------------------------------
-//menu calls
+// menu calls
 void menucall();
 void booktrain();
 void bookedtrain();
@@ -43,19 +43,19 @@ void canceltrain();
 void bookanothertrain();
 void login2();
 //---------------------------------------------------------------
-//for booking trains inserting inputs form user
+// for booking trains inserting inputs form user
 
-    void punjab_mail();
-    void patna_express();
-    void janata_express();
-   void mumbai_cst_express();
-    void vande_bharat_express();
-    void jan_shatab_express();
-    void amravati_express();
-    void new_delhi_bhopal_express();
-     void update_janshatab_express(); 
+void punjab_mail();
+void patna_express();
+void janata_express();
+void mumbai_cst_express();
+void vande_bharat_express();
+void jan_shatab_express();
+void amravati_express();
+void new_delhi_bhopal_express();
+void update_janshatab_express();
 //---------------------------------------------------------------
-//punjab mail update used for delete  the saved data
+// punjab mail update used for delete  the saved data
 
 void update_punjab_mail();
 void update_patna_express();
@@ -67,1742 +67,1562 @@ void update_vandebharat_express();
 
 //---------------------------------------------------------------
 
-main() //SIGN UP PAGE
+main() // SIGN UP PAGE
 {
-   char i;
-  
+  char i;
+
   printf("\n\n   \t\t\t\t                 C LANGUAGE PROJECT\n\n");
-	printf("\t\t\t=================================================\n");
-	printf("\t\t\t||                                             ||\n");
-	printf("\t\t\t||       IRCTC RAILWAY TICKET BOOKING          ||\n");
-	printf("\t\t\t||                                             ||\n");
-	printf("\t\t\t||=============================================||\n");
+  printf("\t\t\t=================================================\n");
+  printf("\t\t\t||                                             ||\n");
+  printf("\t\t\t||       IRCTC RAILWAY TICKET BOOKING          ||\n");
+  printf("\t\t\t||                                             ||\n");
+  printf("\t\t\t||=============================================||\n");
 
+  printf("\n\n\n\t\t\t******************SIGNUP NOW******************\n\n");
 
+  char username[20], password[21], q[20], h[20];
+  // int i=1;
 
- printf("\n\n\n\t\t\t******************SIGNUP NOW******************\n\n");
-    
-    
+  FILE *fp1;
+  fp1 = fopen("railwaylogin.txt", "a");
 
+  printf("\n\t\tCreate UserName\t:-\t ");
+  scanf("%s", n1.name);
+  printf("\n\t\tCreate PassWord\t:-\t");
+  scanf("%s", n1.pass);
 
-    char username[20],password[21], q[20],h[20];
-   // int i=1;
- 
-    FILE *fp1;
-    fp1=fopen("railwaylogin.txt","a");
-     
-     printf("\n\t\tCreate UserName\t:-\t ");
-     scanf("%s",n1.name);
-     printf("\n\t\tCreate PassWord\t:-\t");
-     scanf("%s",n1.pass); 
+  printf("\n\n\t\tEnter Mobile Number\t:-\t");
+  scanf("%s", q);
 
-     printf("\n\n\t\tEnter Mobile Number\t:-\t");
-     scanf("%s",q);
+  printf("\n\n\t\tOtp Has been Sent To Your Mobile Number *****01468");
 
-     printf("\n\n\t\tOtp Has been Sent To Your Mobile Number *****01468");
-              
-     printf("\n\n\t\tEnter Otp\t:-\t");
-     scanf("%s",h);
+  printf("\n\n\t\tEnter Otp\t:-\t");
+  scanf("%s", h);
 
+  fprintf(fp1, "\n\n %s \n\n%s", n1.name, n1.pass);
 
+  printf("\n\n\n\t\t\t*****************SIGNUP SUCCESS*******************\n\n");
+  // fclose(fp1);
 
-     fprintf(fp1,"\n\n %s \n\n%s",n1.name,n1.pass);
-     
-           printf("\n\n\n\t\t\t*****************SIGNUP SUCCESS*******************\n\n");
-    // fclose(fp1); 
-     
-       printf("\n\n\n\t\t\t***************LOGIN NOW*****************\n\n");
-		login2();
-     //LOGINPAGE
+  printf("\n\n\n\t\t\t***************LOGIN NOW*****************\n\n");
+  login2();
+  // LOGINPAGE
 }
- void login2()
-   {
-    char username[20],password[21], q[20],h[20];
-	 FILE * fp1;
-	 int i=1;
-   do{  
-    
+
+//---------------------------------------------------------------------------------------------------
+void login2()
+{
+  char username[20], password[21], q[20], h[20];
+  FILE *fp1;
+  int i = 1;
+  do
+  {
 
     printf("\n \n Enter User Name:-\t");
-    scanf("%s",username);
+    scanf("%s", username);
     printf("\n Enter PassWord:-\t");
-    scanf("%s",password);
- 
-    fp1=fopen("railwaylogin.txt","a");
-    fscanf( fp1, "\n  %s %s ",n1.name,n1.pass);
-    printf("\n \nUserName\t:-\t%s  \n PassWord\t:-\t%s" ,  n1.name,n1.pass);
+    scanf("%s", password);
 
- //COMAPRING US&PASS
+    fp1 = fopen("railwaylogin.txt", "a");
+    fscanf(fp1, "\n  %s %s ", n1.name, n1.pass);
+    printf("\n \nUserName\t:-\t%s  \n PassWord\t:-\t%s", n1.name, n1.pass);
 
+    // COMAPRING US&PASS
 
-    if (((strcmp (n1.name,username)==0)) && ((strcmp(n1.pass,password)==0)))
+    if (((strcmp(n1.name, username) == 0)) && ((strcmp(n1.pass, password) == 0)))
     {
-  
+
       printf("\n\n\n\t\t\t<<<<<<<<<<<<<<<<<<<LOGIN SUCCESS<<<<<<<<<<<<<<<<<<<\n\n");
       menucall();
     }
-     else
+    else
     {
-        printf("\n\n Wrong Login Details");
-        i++;
+      printf("\n\n Wrong Login Details");
+      i++;
     }
     printf("\n\n Please Try Again");
     fclose(fp1);
-		
-   //DO CLOSE
-    } while(i<=3);
+
+    // DO CLOSE
+  } while (i <= 3);
 }
+//---------------------------------------------------------------------------------
+// MAIN MENU 
+void menucall()
+{
 
- void menucall()
- {
+  // FILE *fp;
+  // fp=fopen("menu.txt","w");
+  // int ch;
 
-
- 
-  //FILE *fp;
-  //fp=fopen("menu.txt","w");
-  //int ch;
- 
-
-  
   printf("\n\n   \t\t\t\t              Train Booking Menu\n\n");
-	printf("\t\t\t====================================================\n");
-	printf("\t\t\t||        Press <1> For Book Train                ||\n");
-	printf("\t\t\t||        Press <2> For Booked Train              ||\n");
-	printf("\t\t\t||        Press <3> For Bancel Train              ||\n");
-	printf("\t\t\t||        Press <4> For Book Another Train        ||\n");
-	printf("\t\t\t||        Press <5> For Back To Menu              ||\n");
-	printf("\t\t\t||        Press <6> for login page                ||\n");
+  printf("\t\t\t====================================================\n");
+  printf("\t\t\t||        Press <1> For Book Train                ||\n");
+  printf("\t\t\t||        Press <2> For Booked Train              ||\n");
+  printf("\t\t\t||        Press <3> For Bancel Train              ||\n");
+  printf("\t\t\t||        Press <4> For Book Another Train        ||\n");
+  printf("\t\t\t||        Press <5> For Back To Menu              ||\n");
+  printf("\t\t\t||        Press <6> for login page                ||\n");
   printf("\t\t\t||        Press <7> For Show Booked Train Record  ||\n");
   printf("\t\t\t||================================================||\n");
 
-   
-   int ch;
+  int ch;
 
-printf("\n\nENTER CHOICE:-\t");
-scanf("%d",&ch);
- 
-  switch(ch)
+  //----------------------------------------------------------------
+  //CHOICES
+
+  printf("\n\nENTER CHOICE:-\t");
+  scanf("%d", &ch);
+
+  switch (ch)
   {
 
- case 1:
- 
- booktrain();
- 
- break;
-  
-  case 2:  
- bookedtrain();
- break;
+  case 1:
+
+    booktrain();
+
+    break;
+
+  case 2:
+    bookedtrain();
+    break;
 
   case 3:
-   canceltrain();
+    canceltrain();
 
-  break;
+    break;
 
   case 4:
-  bookanothertrain();
-  break;
-  
+    bookanothertrain();
+    break;
+
   case 5:
-  menucall();
-  break;
+    menucall();
+    break;
 
-
- case 6:
-login2();
-	break;
+  case 6:
+    login2();
+    break;
 
   case 7:
-  show_record();
-  break;
-	
-	
+    show_record();
+    break;
+
   default:
-  {  if("ch==1,2,3,4,5")
+  {
+    if ("ch==1,2,3,4,5")
     {
-    
     }
-    else{
-    menucall();
+    else
+    {
+      menucall();
     }
   }
 
-  } //switchclose
+  } // switchclose
 
-  }//void menucall close
+} // void menucall close
 
+void show_record()
 
- void  show_record()
- {
+//------------------------------------------------------------------------------
+// FOR SHOW SAVED DETAILS
+{
   int gh;
   FILE *fp;
-  
 
   printf("\n\n   \t\t\t     Select Which  Train Ticket You Want To SEE\n\n");
-	printf("\t\t\t==============================================\n");
-	printf("\t\t\t||   Press <1> For   Janata express       ||\n");
-	printf("\t\t\t||   Press <2> For   Patna express        ||\n");
-	printf("\t\t\t||   Press <3> For   Punjab Mail Express  ||\n");
-	printf("\t\t\t||   Press <4> For   New Delhi B Express  ||\n");
-	printf("\t\t\t||   Press <5> For   Ambarnath Express    ||\n");
-	printf("\t\t\t||   Press <6> For   Mumbai CST           ||\n");
+  printf("\t\t\t==============================================\n");
+  printf("\t\t\t||   Press <1> For   Janata express       ||\n");
+  printf("\t\t\t||   Press <2> For   Patna express        ||\n");
+  printf("\t\t\t||   Press <3> For   Punjab Mail Express  ||\n");
+  printf("\t\t\t||   Press <4> For   New Delhi B Express  ||\n");
+  printf("\t\t\t||   Press <5> For   Ambarnath Express    ||\n");
+  printf("\t\t\t||   Press <6> For   Mumbai CST           ||\n");
   printf("\t\t\t||   Press <7> For Vande Bharat Express   ||\n");
   printf("\t\t\t||   Press <8> For JAN Shatab DI Express  ||\n");
   printf("\t\t\t||========================================||\n");
-
-
+//---------------------------------------------------------------------------------------------------
   printf("\nSelect Your Choice:-\t");
-   scanf("%d",&gh);
-  
-  switch(gh)
-{
+  scanf("%d", &gh);
 
-case 1:
-fp=fopen("janata_express.txt","r");
+  switch (gh)
+  {
 
-if (fp==NULL)
-{
-  printf("cannot find/open file");
-}
-char i;
-i=fgetc(fp);
-printf("\n\n JANATA EXPRESS RECORD \n");
-while((i=fgetc(fp)) !=(char)EOF)
-printf("%c",i);
-printf("%c",i);
+  case 1:
+    fp = fopen("janata_express.txt", "r");
 
-fclose(fp);
+    if (fp == NULL)
+    {
+      printf("cannot find/open file");
+    }
+    char i;
+    i = fgetc(fp);
+    printf("\n\n JANATA EXPRESS RECORD \n");
+    while ((i = fgetc(fp)) != (char)EOF)
+      printf("%c", i);
+    printf("%c", i);
 
-break;
+    fclose(fp);
 
-case 2:
+    break;
 
-fp=fopen("patna_eexpress.txt","r");
+  case 2:
 
-if (fp==NULL)
-{
-  printf("cannot find/open file");
-}
-i=fgetc(fp);
-printf("\n\n PATNA EXPRESS RECORD \n");
-while((i=fgetc(fp)) !=(char)EOF)
-printf("%c",i);
-printf("%c",i);
+    fp = fopen("patna_eexpress.txt", "r");
 
-fclose(fp);
+    if (fp == NULL)
+    {
+      printf("cannot find/open file");
+    }
+    i = fgetc(fp);
+    printf("\n\n PATNA EXPRESS RECORD \n");
+    while ((i = fgetc(fp)) != (char)EOF)
+      printf("%c", i);
+    printf("%c", i);
 
-break;
+    fclose(fp);
 
-case 3:
+    break;
 
+  case 3:
 
- fp=fopen("punjab_mail_express.txt","r");
+    fp = fopen("punjab_mail_express.txt", "r");
 
-if (fp==NULL)
-{
-  printf("cannot find/open file");
-}
-i=fgetc(fp);
-printf("\n\n PUNJAB MAIL  RECORD \n");
-while((i=fgetc(fp)) !=(char)EOF)
-printf("%c",i);
-printf("%c",i);
+    if (fp == NULL)
+    {
+      printf("cannot find/open file");
+    }
+    i = fgetc(fp);
+    printf("\n\n PUNJAB MAIL  RECORD \n");
+    while ((i = fgetc(fp)) != (char)EOF)
+      printf("%c", i);
+    printf("%c", i);
 
-fclose(fp);
-break;
+    fclose(fp);
+    break;
 
-case 4:
+  case 4:
 
+    fp = fopen("newdelhi_express.txt", "r");
 
-  fp=fopen("newdelhi_express.txt","r");
+    if (fp == NULL)
+    {
+      printf("cannot find/open file");
+    }
+    i = fgetc(fp);
+    printf("\n\n NEW DELHI BHOPAL EXPRESS  RECORD \n");
+    while ((i = fgetc(fp)) != (char)EOF)
+      printf("%c", i);
+    printf("%c", i);
 
-if (fp==NULL)
-{
-  printf("cannot find/open file");
-}
-i=fgetc(fp);
-printf("\n\n NEW DELHI BHOPAL EXPRESS  RECORD \n");
-while((i=fgetc(fp)) !=(char)EOF)
-printf("%c",i);
-printf("%c",i);
+    fclose(fp);
+    break;
 
-fclose(fp);
-break;
+  case 5:
 
+    fp = fopen("ambarnath_express.txt", "r");
 
-case 5:
+    if (fp == NULL)
+    {
+      printf("cannot find/open file");
+    }
+    i = fgetc(fp);
+    printf("\n\n AMBARNATH EXPRESS  RECORD \n");
+    while ((i = fgetc(fp)) != (char)EOF)
+      printf("%c", i);
+    printf("%c", i);
 
-    fp=fopen("ambarnath_express.txt","r");
+    fclose(fp);
+    break;
 
-if (fp==NULL)
-{
-  printf("cannot find/open file");
-}
-i=fgetc(fp);
-printf("\n\n AMBARNATH EXPRESS  RECORD \n");
-while((i=fgetc(fp)) !=(char)EOF)
-printf("%c",i);
-printf("%c",i);
+  case 6:
 
-fclose(fp);
-break;
+    fp = fopen("mumbai_express.txt", "r");
 
-case 6:
+    if (fp == NULL)
+    {
+      printf("cannot find/open file");
+    }
+    i = fgetc(fp);
+    printf("\n\n MUMBAI EXPRESS  RECORD \n");
+    while ((i = fgetc(fp)) != (char)EOF)
+      printf("%c", i);
+    printf("%c", i);
 
+    fclose(fp);
+    break;
 
-      fp=fopen("mumbai_express.txt","r");
+  case 7:
+    fp = fopen("vandebharat_express.txt", "r");
 
-if (fp==NULL)
-{
-  printf("cannot find/open file");
-}
-i=fgetc(fp);
-printf("\n\n MUMBAI EXPRESS  RECORD \n");
-while((i=fgetc(fp)) !=(char)EOF)
-printf("%c",i);
-printf("%c",i);
+    if (fp == NULL)
+    {
+      printf("cannot find/open file");
+    }
+    i = fgetc(fp);
+    printf("\n\n VANDE BHARAT EXPRESS  RECORD \n");
+    while ((i = fgetc(fp)) != (char)EOF)
+      printf("%c", i);
+    printf("%c", i);
 
-fclose(fp);
-break;
+    fclose(fp);
+    break;
 
-case 7:
-  fp=fopen("vandebharat_express.txt","r");
+  case 8:
 
-if (fp==NULL)
-{
-  printf("cannot find/open file");
-}
-i=fgetc(fp);
-printf("\n\n VANDE BHARAT EXPRESS  RECORD \n");
-while((i=fgetc(fp)) !=(char)EOF)
-printf("%c",i);
-printf("%c",i);
+    fp = fopen("janshatab_express.txt", "r");
 
-fclose(fp);
-break;
+    if (fp == NULL)
+    {
+      printf("cannot find/open file");
+    }
+    i = fgetc(fp);
+    printf("\n\n JAN SHATABDI  RECORD \n");
+    while ((i = fgetc(fp)) != (char)EOF)
+      printf("%c", i);
+    printf("%c", i);
 
-case 8:
+    fclose(fp);
+    break;
 
-fp=fopen("janshatab_express.txt","r");
+  default:
+    printf("\n\nenter correct number please");
+  }
 
-if (fp==NULL)
-{
-  printf("cannot find/open file");
-}
-i=fgetc(fp);
-printf("\n\n JAN SHATABDI  RECORD \n");
-while((i=fgetc(fp)) !=(char)EOF)
-printf("%c",i);
-printf("%c",i);
-
-fclose(fp);
-break;
-
-default:
-printf("\n\nenter correct number please");
-
-
-}
-
-{
-  menucall();
+  {
+    menucall();
+  }
 }
 
+//-----------------------------------------------------------------------------
+//FOR BOOK TRAINS 
 
- }
-
-
- void booktrain()
+void booktrain()
 {
   struct train a1;
   FILE *fp;
-  fp =fopen("booktrain5.txt","a");
+  fp = fopen("booktrain5.txt", "a");
 
   printf("\n\n\t\t\tBOOKING A TRAIN");
   printf("\n\nFrom Arrival Station:-\t ");
   fflush(stdin);
-   scanf("%s",a1.ch3);
- 
- 
- printf("\n\n To Destination Station :-\t");
- fflush(stdin);
- 
- scanf("%s",a1.ch4);
- fprintf(fp,"from =%s\n ",a1.ch3);
- 
- fprintf(fp,"destination =%s\n",a1.ch4);
+  scanf("%s", a1.ch3);
+
+  printf("\n\n To Destination Station :-\t");
+  fflush(stdin);
+
+  scanf("%s", a1.ch4);
+  fprintf(fp, "from =%s\n ", a1.ch3);
+
+  fprintf(fp, "destination =%s\n", a1.ch4);
   printf("\n\n\t\t Total 8  Trains We Found For Your Journey ");
-  printf("\n\nFROM:-\t %s",a1.ch3); 
-  printf("\n\nTO:-\t %s",a1.ch4); 
+  printf("\n\nFROM:-\t %s", a1.ch3);
+  printf("\n\nTO:-\t %s", a1.ch4);
   fclose(fp);
 
+  //-------------------------------------------------------------------------
+  //TRAINS SELECT MENU
 
-printf("\n\n   \t\t\t\t      Please  Choose  A Train For Journey\n\n");
-	printf("\t\t\t===============================================\n");
-	printf("\t\t\t||     Press <1> For  Punjab Mail            ||\n");
-	printf("\t\t\t||     Press <2> For  Patna Express          ||\n");
-	printf("\t\t\t||     Press <3> For  Janta Express          ||\n");
-	printf("\t\t\t||     Press <4> For  New Delhi Bhopal Expr  ||\n");
-	printf("\t\t\t||     Press <5> For  AmarNath Express       ||\n");
-	printf("\t\t\t||     Press <6> For  Jan Shatabdi Express   ||\n");
+  printf("\n\n   \t\t\t\t      Please  Choose  A Train For Journey\n\n");
+  printf("\t\t\t===============================================\n");
+  printf("\t\t\t||     Press <1> For  Punjab Mail            ||\n");
+  printf("\t\t\t||     Press <2> For  Patna Express          ||\n");
+  printf("\t\t\t||     Press <3> For  Janta Express          ||\n");
+  printf("\t\t\t||     Press <4> For  New Delhi Bhopal Expr  ||\n");
+  printf("\t\t\t||     Press <5> For  AmarNath Express       ||\n");
+  printf("\t\t\t||     Press <6> For  Jan Shatabdi Express   ||\n");
   printf("\t\t\t||     Press <7> For  Vande Bharat Express   ||\n");
   printf("\t\t\t||     Press <8> For  Mumbai CST Terminal    ||\n");
   printf("\t\t\t||===========================================||\n");
- 
+//---------------------------------------------------------------------------------------------------
   char ch5;
- 
- 
-    printf("\n\n\t\tSelect Your Choice:-\t\n\n");
-    fflush(stdin);
-   
-  
-    scanf("%d",&ch5);
-  
-    switch(ch5)
-    
-{ 
-  
-    case 1:
 
-     punjab_mail(); 
+  printf("\n\n\t\tSelect Your Choice:-\t\n\n");
+  fflush(stdin);
 
-   break;
+  scanf("%d", &ch5);
 
-case 2:
-patna_express();
-     break;
+  switch (ch5)
 
- 
-  
-   case 3:
-  
-      janata_express();
-  
-break;
- 
-    
-    case 4:
-     
-      new_delhi_bhopal_express();
-  break;
- 
+  {
 
-    	
+  case 1:
+
+    punjab_mail();
+
+    break;
+
+  case 2:
+    patna_express();
+    break;
+
+  case 3:
+
+    janata_express();
+
+    break;
+
+  case 4:
+
+    new_delhi_bhopal_express();
+    break;
 
   case 5:
-    
-      amravati_express();
-   
-      break;
-   
 
-   case 6:
-  
-      jan_shatab_express();
-  
-      break;
-  
-  
+    amravati_express();
 
-case 7:
-
-      vande_bharat_express();
     break;
-  
- 
+
+  case 6:
+
+    jan_shatab_express();
+
+    break;
+
+  case 7:
+
+    vande_bharat_express();
+    break;
 
   case 8:
 
     mumbai_cst_express();
 
-      break;
-    
- 
- 
-   default:
-   {
+    break;
+
+  default:
+  {
     printf("enter correct choice please");
-    
-   }
-    
+  }
+
+    /*  case 3:
+    printf("\n\n mumbai hai");
+     break;
 
 
- /*  case 3:
- printf("\n\n mumbai hai");
-  break;
+     case 4:
+    printf("\n\n amritsar hai");
+     break;
+   */
+    // default:
+    // printf("\n\n correct number please");
+
+  } // switch close
+
+} // void booktrainclose
 
 
-  case 4:
- printf("\n\n amritsar hai");
-  break;
-*/
-  //default:
- // printf("\n\n correct number please");
+//-------------------------------------------------------------------
+//SHOW HISTORY LAST 3 BOOK TRAINS
 
-
-}//switch close 
-
- 
-
-
- }//void booktrainclose
- 
-
-
- void bookedtrain()
+void bookedtrain()
 {
 
-FILE *fp1;
-fp1=fopen("janata_express.txt","r");
+  FILE *fp1;
+  fp1 = fopen("janata_express.txt", "r");
 
-if (fp1==NULL)
-{
-  printf("cannot find/open file");
+  if (fp1 == NULL)
+  {
+    printf("cannot find/open file");
+  }
+  char i;
+  i = fgetc(fp1);
+  printf("\n\n JANATA EXPRESS RECORD \n");
+  while ((i = fgetc(fp1)) != (char)EOF)
+    printf("%c", i);
+  printf("%c", i);
+
+  fclose(fp1);
+//---------------------------------------------------------------------------------------------------
+  FILE *fp;
+  fp = fopen("patna_eexpress.txt", "r");
+
+  if (fp == NULL)
+  {
+    printf("cannot find/open file");
+  }
+  i = fgetc(fp);
+  printf("\n\n PATNA EXPRESS RECORD \n");
+  while ((i = fgetc(fp)) != (char)EOF)
+    printf("%c", i);
+  printf("%c", i);
+
+  fclose(fp);
+//---------------------------------------------------------------------------------------------------
+  FILE *fp2;
+
+  fp2 = fopen("punjab_mail_express.txt", "r");
+
+  if (fp2 == NULL)
+  {
+    printf("cannot find/open file");
+  }
+  i = fgetc(fp2);
+  printf("\n\n PUNJAB MAIL  RECORD \n");
+  while ((i = fgetc(fp2)) != (char)EOF)
+    printf("%c", i);
+  printf("%c", i);
+
+  fclose(fp2);
+//---------------------------------------------------------------------------------------------------
+  FILE *fp3;
+  fp3 = fopen("newdelhi_express.txt", "r");
+
+  if (fp3 == NULL)
+  {
+    printf("cannot find/open file");
+  }
+  i = fgetc(fp3);
+  printf("\n\n NEW DELHI BHOPAL EXPRESS  RECORD \n");
+  while ((i = fgetc(fp3)) != (char)EOF)
+    printf("%c", i);
+  printf("%c", i);
+
+  fclose(fp3);
+//---------------------------------------------------------------------------------------------------
+  FILE *fp4;
+
+  fp4 = fopen("ambarnath_express.txt", "r");
+
+  if (fp4 == NULL)
+  {
+    printf("cannot find/open file");
+  }
+  i = fgetc(fp4);
+  printf("\n\n AMBARNATH EXPRESS  RECORD \n");
+  while ((i = fgetc(fp4)) != (char)EOF)
+    printf("%c", i);
+  printf("%c", i);
+
+  fclose(fp4);
+
+  {
+    menucall();
+  }
 }
-char i;
-i=fgetc(fp1);
-printf("\n\n JANATA EXPRESS RECORD \n");
-while((i=fgetc(fp1)) !=(char)EOF)
-printf("%c",i);
-printf("%c",i);
-
-fclose(fp1);
- 
-FILE *fp;
-fp=fopen("patna_eexpress.txt","r");
-
-if (fp==NULL)
+//-------------------------------------------------------------------------------
+// FOR CANCEL TRAINS (DELETE)
+void canceltrain()
 {
-  printf("cannot find/open file");
-}
-i=fgetc(fp);
-printf("\n\n PATNA EXPRESS RECORD \n");
-while((i=fgetc(fp)) !=(char)EOF)
-printf("%c",i);
-printf("%c",i);
 
-fclose(fp);
-
-FILE *fp2;
-
- fp2=fopen("punjab_mail_express.txt","r");
-
-if (fp2==NULL)
-{
-  printf("cannot find/open file");
-}
-i=fgetc(fp2);
-printf("\n\n PUNJAB MAIL  RECORD \n");
-while((i=fgetc(fp2)) !=(char)EOF)
-printf("%c",i);
-printf("%c",i);
-
-fclose(fp2);
-
-FILE *fp3;
-  fp3=fopen("newdelhi_express.txt","r");
-
-if (fp3==NULL)
-{
-  printf("cannot find/open file");
-}
-i=fgetc(fp3);
-printf("\n\n NEW DELHI BHOPAL EXPRESS  RECORD \n");
-while((i=fgetc(fp3)) !=(char)EOF)
-printf("%c",i);
-printf("%c",i);
-
-fclose(fp3);
-
-FILE *fp4;
-
- fp4=fopen("ambarnath_express.txt","r");
-
-if (fp4==NULL)
-{
-  printf("cannot find/open file");
-}
-i=fgetc(fp4);
-printf("\n\n AMBARNATH EXPRESS  RECORD \n");
-while((i=fgetc(fp4)) !=(char)EOF)
-printf("%c",i);
-printf("%c",i);
-
-fclose(fp4);
-
-
- {
-  menucall();
- }
-
-}
-
-
- void canceltrain()
-{
-  
-
-printf("\n\n   \t\t\t\t      Please  Choose  A Train To Cancel itt!!\n\n");
-	printf("\t\t\t================================================\n");
-	printf("\t\t\t||  Press <1> For Cancel Patna Express        ||\n");
-	printf("\t\t\t||  Press <2> For Cancel janata Express       ||\n");
-	printf("\t\t\t||  Press <3> For Punjab Mail Express         ||\n");
-	printf("\t\t\t||  Press <4> For Cancel New Delhi B Expr     ||\n");
-	printf("\t\t\t||  Press <4> For Cancel AmbarNath Expr       ||\n");
-	printf("\t\t\t||  Press <5> For Cancel Mumbai CST           ||\n");
-	printf("\t\t\t||  Press <6> For Cancel Vande Bharat Expres  ||\n");
+  printf("\n\n   \t\t\t\t      Please  Choose  A Train To Cancel itt!!\n\n");
+  printf("\t\t\t================================================\n");
+  printf("\t\t\t||  Press <1> For Cancel Patna Express        ||\n");
+  printf("\t\t\t||  Press <2> For Cancel janata Express       ||\n");
+  printf("\t\t\t||  Press <3> For Punjab Mail Express         ||\n");
+  printf("\t\t\t||  Press <4> For Cancel New Delhi B Expr     ||\n");
+  printf("\t\t\t||  Press <4> For Cancel AmbarNath Expr       ||\n");
+  printf("\t\t\t||  Press <5> For Cancel Mumbai CST           ||\n");
+  printf("\t\t\t||  Press <6> For Cancel Vande Bharat Expres  ||\n");
   printf("\t\t\t||  Press <8> For Cancel Jan Shatab DI Expr   ||\n");
   printf("\t\t\t||============================================||\n");
- 
-
-
+//---------------------------------------------------------------------------------------------------
   int f2;
   printf("\n\nSelect Your Choice:-\t");
-  scanf("%d",&f2);
+  scanf("%d", &f2);
 
-  switch(f2)
+  switch (f2)
   {
- case 1:
-   update_patna_express();
-   break;
+  case 1:
+    update_patna_express();
+    break;
 
-   case 2:
-   update_janata_express();
-   break;
+  case 2:
+    update_janata_express();
+    break;
 
-   case 3: 
+  case 3:
     update_punjab_mail();
     break;
-    case 4: 
-     update_newdelhi_express();
-   default :
-   case 5:
-   update_amravati_express();
-   break;
+  case 4:
+    update_newdelhi_express();
+  default:
+  case 5:
+    update_amravati_express();
+    break;
 
-   case 6:
+  case 6:
     update_mumbaicst_express();
     break;
 
-    case 7:
-     update_vandebharat_express();
-       break;
+  case 7:
+    update_vandebharat_express();
+    break;
 
-       case 8:
-        update_janshatab_express();
-        break;
-   {
-    printf("enter correct number");
-   }
-
+  case 8:
+    update_janshatab_express();
+    break;
+    {
+      printf("enter correct number");
+    }
   }
-
-
 }
 
-
+//-------------------------------------------------------------
+//DELETING TRAINS
 
 void update_patna_express()
 
 {
-    
-   struct per person;
- char n[21];
 
-    FILE *fp;
-    
+  struct per person;
+  char n[21];
 
-    FILE *fp1;
-    
-      
-    fp=fopen("patna_eexpress.txt","r+");
-  
-  if (fp==NULL)
+  FILE *fp;
+
+  FILE *fp1;
+
+  fp = fopen("patna_eexpress.txt", "r+");
+
+  if (fp == NULL)
   {
     printf("\n\ncannot find file no data found");
   }
 
-printf("\n\n Enter Person Name Whose You Want To Delete");
-scanf("%s",&n);
+  printf("\n\n Enter Person Name Whose You Want To Delete");
+  scanf("%s", &n);
 
-while(fscanf(fp,"%s %s %s %s",&person.codei,&person.namei,&person.agei,&person.ph)!=EOF)
+  while (fscanf(fp, "%s %s %s %s", &person.codei, &person.namei, &person.agei, &person.ph) != EOF)
 
-{
+  {
 
-if(strcmp(&person.namei,n)==0)
+    if (strcmp(&person.namei, n) == 0)
 
-{ 
-  printf("Record Found");
+    {
+      printf("Record Found");
 
+      printf("%s %s %s %s", &person.namei, &person.codei, &person.agei, &person.ph);
 
- printf("%s %s %s %s",&person.namei,&person.codei,&person.agei,&person.ph);
+      fp1 = fopen("patna_eexpress.txt", "r+");
 
+      strcpy(person.namei, "null");
+      strcpy(person.codei, "null");
+      strcpy(person.agei, "null");
+      strcpy(person.ph, "null");
 
+      fprintf(fp1, "%s\n %s\n %s\n %s\n", &person.namei, &person.codei, &person.agei, &person.ph);
 
- fp1=fopen("patna_eexpress.txt","r+");
-
- strcpy(person.namei,"null");
- strcpy(person.codei ,"null");
- strcpy(person.agei,"null");
- strcpy(person.ph,"null");
-
-  
-  fprintf(fp1 ,"%s\n %s\n %s\n %s\n",&person.namei,&person.codei,&person.agei,&person.ph);
-
-
-printf("\nRecord Deleted");
-
+      printf("\nRecord Deleted");
+    }
+    else
+    {
+      printf("Record Not Found");
+    }
+  }
+  {
+    menucall();
+  }
+  fclose(fp);
+  fclose(fp1);
 }
-else 
-{
-  printf("Record Not Found");
-}
 
-}
-{
-  menucall();
-}
-fclose(fp);
-fclose(fp1);
-}
+//-----------------------------------------------------------------------------------------
+// INSERTING DETAILS OF PASSANGER
 
 void janata_express()
 
-
 {
-  
-printf("\t\t\t-------WELCOME TO JANTA EXPRESS-------\n\n");
- 
-        printf("\t====================================================\n");
-        printf("\t TRAIN CODE : 491 \tCOACHES AVAILABLE\n\n");
-        printf("\t                       A.C. FIRST CLASS  : 19\n\n");
-        printf("\t TIMING : 7.00 PM      A.C. 2 TIER : 11\n\n");
-        printf("\t PRICE  : 180rs        SECOND SITTING : 9 \n\n");
-        printf("\t                       GENERAL : 5  \n");
-        printf("\t================================================");
-  
-   char name;
-   char ds;
-        printf("\nDo You Want To Book Ticket Y/N\n\n"); 
-         fflush(stdin);
-        scanf("%c",&ds);  
-         fflush(stdin);
-         
-        if(ds=='y'||ds=='Y')
-        
-        {
-         
 
-         FILE *fp;
-   //  char name[20];
-   //  char code[20];
-   //  char age[20];
-    //char f1;
-    struct per person;
+  printf("\t\t\t-------WELCOME TO JANTA EXPRESS-------\n\n");
 
-     fp=fopen("janata_express.txt","w+");
-      
-printf("\n\n\t\tEnter Train Code:-\t");
-      scanf("%s",&person.codei);
+  printf("\t====================================================\n");
+  printf("\t TRAIN CODE : 491 \tCOACHES AVAILABLE\n\n");
+  printf("\t                       A.C. FIRST CLASS  : 19\n\n");
+  printf("\t TIMING : 7.00 PM      A.C. 2 TIER : 11\n\n");
+  printf("\t PRICE  : 180rs        SECOND SITTING : 9 \n\n");
+  printf("\t                       GENERAL : 5  \n");
+  printf("\t================================================");
 
+  char name;
+  char ds;
+  printf("\nDo You Want To Book Ticket Y/N\n\n");
+  fflush(stdin);
+  scanf("%c", &ds);
+  fflush(stdin);
 
-      printf("\n\n\t\tEnter Passanger  Name:-\t");
-      scanf("%s",&person.namei);
+  if (ds == 'y' || ds == 'Y')
 
-      printf("\n\n\t\tEnter Passanger Age:-\t");
-      scanf("%s",&person.agei);
-
-       printf("\n\n\t\tEnter Contact Number:-\t");
-      scanf("%s",&person.ph);
-
-
-     fprintf(fp,"%s\n %s \n %s\n %s\n",&person.codei,&person.namei,&person.agei,&person.ph);
-    fclose(fp);
-        
- printf("\n\n\t\t\tGone Back To Menu Page");
-
- printf("\n\n\t\t\tTicket Booked Sucessfully");
-        
-
- 
- {
-  menucall();
- }
-
-
-  }    
-
-
-}
-
-void update_janata_express()
-
-
-{
-    
-   struct per person;
- char n[21];
+  {
 
     FILE *fp;
-    
+    //  char name[20];
+    //  char code[20];
+    //  char age[20];
+    // char f1;
+    struct per person;
 
-    FILE *fp1;
-    
-      
-    fp=fopen("janata_express.txt","r+");
-  
-  if (fp==NULL)
+    fp = fopen("janata_express.txt", "w+");
+
+    printf("\n\n\t\tEnter Train Code:-\t");
+    scanf("%s", &person.codei);
+
+    printf("\n\n\t\tEnter Passanger  Name:-\t");
+    scanf("%s", &person.namei);
+
+    printf("\n\n\t\tEnter Passanger Age:-\t");
+    scanf("%s", &person.agei);
+
+    printf("\n\n\t\tEnter Contact Number:-\t");
+    scanf("%s", &person.ph);
+
+    fprintf(fp, "%s\n %s \n %s\n %s\n", &person.codei, &person.namei, &person.agei, &person.ph);
+    fclose(fp);
+
+    printf("\n\n\t\t\tGone Back To Menu Page");
+
+    printf("\n\n\t\t\tTicket Booked Sucessfully");
+
+    {
+      menucall();
+    }
+  }
+}
+//---------------------------------------------------------------------------------------------------
+void update_janata_express()
+
+{
+
+  struct per person;
+  char n[21];
+
+  FILE *fp;
+
+  FILE *fp1;
+
+  fp = fopen("janata_express.txt", "r+");
+
+  if (fp == NULL)
   {
     printf("\n\ncannot find file no data found");
   }
 
-printf("\n\n enter person name whose you want to delete");
-scanf("%s",&n);
+  printf("\n\n enter person name whose you want to delete");
+  scanf("%s", &n);
 
-while(fscanf(fp,"%s %s %s %s",&person.codei,&person.namei,&person.agei,&person.ph)!=EOF)
+  while (fscanf(fp, "%s %s %s %s", &person.codei, &person.namei, &person.agei, &person.ph) != EOF)
+
+  {
+
+    if (strcmp(&person.namei, n) == 0)
+
+    {
+      printf("Record Found");
+
+      printf("%s %s %s %s", &person.namei, &person.codei, &person.agei, &person.ph);
+
+      fp1 = fopen("janata_express.txt", "r+");
+
+      strcpy(&person.namei, "null");
+      strcpy(&person.codei, "null");
+      strcpy(&person.agei, "null");
+      strcpy(&person.ph, "null");
+
+      fprintf(fp1, "%s\n %s\n %s\n %s\n", &person.namei, &person.codei, &person.agei, &person.ph);
+
+      printf("\nRecord Deleted");
+    }
+    else
+    {
+      printf("Record Not Found");
+    }
+  }
+  {
+    menucall();
+  }
+  fclose(fp);
+  fclose(fp1);
+}
+//---------------------------------------------------------------------------------------------------
+void punjab_mail()
 
 {
 
-if(strcmp(&person.namei,n)==0)
+  printf("\t\t\t-------WELCOME TO PUNJAB MAIL EXPRESS-------\n\n");
 
-{ 
-  printf("Record Found");
+  printf("\t====================================================\n");
+  printf("\t TRAIN CODE : 196 \tCOACHES AVAILABLE\n\n");
+  printf("\t                       A.C. FIRST CLASS  : 19\n\n");
+  printf("\t TIMING : 10.00 PM      A.C. 2 TIER : 11\n\n");
+  printf("\t PRICE  : 179rs        SECOND SITTING : 9 \n\n");
+  printf("\t                       GENERAL : 5  \n");
+  printf("\t================================================");
 
+  char name;
+  char ds;
+  printf("\nDo You Want To Book Ticket Y/N\n\n");
+  fflush(stdin);
+  scanf("%c", &ds);
+  fflush(stdin);
 
- printf("%s %s %s %s",&person.namei,&person.codei,&person.agei,&person.ph);
+  if (ds == 'y' || ds == 'Y')
 
-
-
- fp1=fopen("janata_express.txt","r+");
-
- strcpy(&person.namei,"null");
- strcpy(&person.codei ,"null");
- strcpy(&person.agei,"null");
- strcpy(&person.ph,"null");
-
-  
-  fprintf(fp1 ,"%s\n %s\n %s\n %s\n",&person.namei,&person.codei,&person.agei,&person.ph);
-
-
-printf("\nRecord Deleted");
-
-}
-else 
-{
-  printf("Record Not Found");
-}
-
-}
-{
-  menucall();
-}
-fclose(fp);
-fclose(fp1);
-}
-
-
-    void punjab_mail()
-
-   
-
-{
-  
-printf("\t\t\t-------WELCOME TO PUNJAB MAIL EXPRESS-------\n\n");
- 
-        printf("\t====================================================\n");
-        printf("\t TRAIN CODE : 196 \tCOACHES AVAILABLE\n\n");
-        printf("\t                       A.C. FIRST CLASS  : 19\n\n");
-        printf("\t TIMING : 10.00 PM      A.C. 2 TIER : 11\n\n");
-        printf("\t PRICE  : 179rs        SECOND SITTING : 9 \n\n");
-        printf("\t                       GENERAL : 5  \n");
-        printf("\t================================================");
-  
-   char name;
-   char ds;
-        printf("\nDo You Want To Book Ticket Y/N\n\n"); 
-         fflush(stdin);
-        scanf("%c",&ds);  
-         fflush(stdin);
-         
-        if(ds=='y'||ds=='Y')
-        
-        {
-         
-
-         FILE *fp;
-   //  char name[20];
-   //  char code[20];
-   //  char age[20];
-    //char f1;
-    struct per person;
-
-      fp=fopen("punjab_mail_express.txt","w+");
-      
-printf("\n\n\t\tEnter Train Code:-\t");
-      scanf("%s",&person.codei);
-
-
-      printf("\n\n\t\tEnter Passanger  Name:-\t");
-      scanf("%s",&person.namei);
-
-      printf("\n\n\t\tEnter Passanger Age:-\t");
-      scanf("%s",&person.agei);
-
-       printf("\n\n\t\tEnter Contact Number:-\t");
-      scanf("%s",&person.ph);
-
-
-     fprintf(fp,"%s\n %s \n %s\n %s\n",&person.codei,&person.namei,&person.agei,&person.ph);
-    fclose(fp);
-        
- printf("\n\n\t\t\tGone Back To Menu Page");
-
- printf("\n\n\t\t\tTicket Booked Sucessfully");
- 
-
- {
-  menucall();
- }
-
-
-  }    
-
-
-}
-
-void update_punjab_mail()
-
-
-{
-    
-   struct per person;
- char n[21];
+  {
 
     FILE *fp;
+    //  char name[20];
+    //  char code[20];
+    //  char age[20];
+    // char f1;
+    struct per person;
 
-    FILE *fp1;
-    
-      
-     fp=fopen("punjab_mail_express.txt","r+");
-  
-  if (fp==NULL)
+    fp = fopen("punjab_mail_express.txt", "w+");
+
+    printf("\n\n\t\tEnter Train Code:-\t");
+    scanf("%s", &person.codei);
+
+    printf("\n\n\t\tEnter Passanger  Name:-\t");
+    scanf("%s", &person.namei);
+
+    printf("\n\n\t\tEnter Passanger Age:-\t");
+    scanf("%s", &person.agei);
+
+    printf("\n\n\t\tEnter Contact Number:-\t");
+    scanf("%s", &person.ph);
+
+    fprintf(fp, "%s\n %s \n %s\n %s\n", &person.codei, &person.namei, &person.agei, &person.ph);
+    fclose(fp);
+
+    printf("\n\n\t\t\tGone Back To Menu Page");
+
+    printf("\n\n\t\t\tTicket Booked Sucessfully");
+
+    {
+      menucall();
+    }
+  }
+}
+//---------------------------------------------------------------------------------------------------
+void update_punjab_mail()
+
+{
+
+  struct per person;
+  char n[21];
+
+  FILE *fp;
+
+  FILE *fp1;
+
+  fp = fopen("punjab_mail_express.txt", "r+");
+
+  if (fp == NULL)
   {
     printf("\ncannot find file no data found");
   }
 
-printf("\n\n enter person name whose you want to delete");
-scanf("%s",&n);
+  printf("\n\n enter person name whose you want to delete");
+  scanf("%s", &n);
 
-while(fscanf(fp,"%s %s %s %s",&person.codei,&person.namei,&person.agei,&person.ph)!=EOF)
+  while (fscanf(fp, "%s %s %s %s", &person.codei, &person.namei, &person.agei, &person.ph) != EOF)
 
-{
+  {
 
-if(strcmp(&person.namei,n)==0)
+    if (strcmp(&person.namei, n) == 0)
 
-{ 
-  printf("Record Found");
- fflush(stdin);
+    {
+      printf("Record Found");
+      fflush(stdin);
 
- printf("%s %s %s %s",&person.namei,&person.codei,&person.agei,&person.ph);
+      printf("%s %s %s %s", &person.namei, &person.codei, &person.agei, &person.ph);
 
+      fp1 = fopen("punjab_mail_express.txt", "r+");
 
+      strcpy(person.namei, "OLD TICKET HAS BEEN CANCELLED\n");
+      strcpy(person.codei, "Null");
+      strcpy(person.agei, "Null");
+      strcpy(person.ph, "Null");
 
-  fp1=fopen("punjab_mail_express.txt","r+");
+      fprintf(fp1, "%s\n %s\n %s\n %s\n", &person.namei, &person.codei, &person.agei, &person.ph);
 
-  strcpy(person.namei,"OLD TICKET HAS BEEN CANCELLED\n");
-  strcpy(person.codei ,"Null");
-  strcpy(person.agei,"Null");
-  strcpy(person.ph,"Null");
+      printf("\nRecord Deleted");
+    }
 
-  fprintf(fp1,"%s\n %s\n %s\n %s\n",&person.namei,&person.codei,&person.agei,&person.ph);
-  
-printf("\nRecord Deleted");
+    else
+    {
+      printf("Record Not Found");
+    }
+  }
 
-}
-
-else 
- {
-  printf("Record Not Found");
- }
- 
- } 
-
- { 
-  menucall();
- }
+  {
+    menucall();
+  }
 
   fclose(fp);
   fclose(fp1);
-
- }
-
+}
+//---------------------------------------------------------------------------------------------------
 void new_delhi_bhopal_express()
-    {
-    
-   printf("\t\t\t-------WELCOME TO NEW DELHI BHOPAL EXPRESS-------\n\n");
- 
-        printf("\t====================================================\n");
-        printf("\t TRAIN CODE : 961 \tCOACHES AVAILABLE\n\n");
-        printf("\t                        A.C. FIRST CLASS  : 19\n\n");
-        printf("\t TIMING : 12.20 AM       A.C. 2 TIER : 11\n\n");
-        printf("\t PRICE  : 740rs         SECOND SITTING : 9 \n\n");
-        printf("\t                        GENERAL : 5  \n");
-        printf("\t================================================");
-  
-   char name;
-   char ds;
-        printf("\nDo You Want To Book Ticket Y/N\n\n"); 
-         fflush(stdin);
-        scanf("%c",&ds);  
-         fflush(stdin);
-         
-        if(ds=='y'||ds=='Y')
-        
-        {
-         
+{
+
+  printf("\t\t\t-------WELCOME TO NEW DELHI BHOPAL EXPRESS-------\n\n");
+
+  printf("\t====================================================\n");
+  printf("\t TRAIN CODE : 961 \tCOACHES AVAILABLE\n\n");
+  printf("\t                        A.C. FIRST CLASS  : 19\n\n");
+  printf("\t TIMING : 12.20 AM       A.C. 2 TIER : 11\n\n");
+  printf("\t PRICE  : 740rs         SECOND SITTING : 9 \n\n");
+  printf("\t                        GENERAL : 5  \n");
+  printf("\t================================================");
+
+  char name;
+  char ds;
+  printf("\nDo You Want To Book Ticket Y/N\n\n");
+  fflush(stdin);
+  scanf("%c", &ds);
+  fflush(stdin);
+
+  if (ds == 'y' || ds == 'Y')
+
+  {
 
     // char name[20];
     // char code[20];
     // char age[20];
-     char f1;
-  
+    char f1;
 
+    struct per person;
+    FILE *fp;
 
-   struct per person;
-   FILE *fp;
+    fp = fopen("newdelhi_express.txt", "w+");
+    if (fp == NULL)
+    {
+      printf("\ncannot open file ");
+    }
 
-     fp=fopen("newdelhi_express.txt","w+");
-      if (fp==NULL)
-      {
-        printf("\ncannot open file ");
-      }
+    printf("\n\n\t\tEnter Train Code:-\t");
+    scanf("%s", &person.codei);
 
-      printf("\n\n\t\tEnter Train Code:-\t");
-      scanf("%s",&person.codei);
+    printf("\n\n\t\tEnter Passanger  Name:-\t");
+    scanf("%s", &person.namei);
 
+    printf("\n\n\t\tEnter Passanger Age:-\t");
+    scanf("%s", &person.agei);
 
-      printf("\n\n\t\tEnter Passanger  Name:-\t");
-      scanf("%s",&person.namei);
+    printf("\n\n\t\tEnter Contact Number:-\t");
+    scanf("%s", &person.ph);
 
-      printf("\n\n\t\tEnter Passanger Age:-\t");
-      scanf("%s",&person.agei);
-
-       printf("\n\n\t\tEnter Contact Number:-\t");
-      scanf("%s",&person.ph);
-
-
-     fprintf(fp,"%s\n %s \n %s\n %s\n",&person.codei,&person.namei,&person.agei,&person.ph);
+    fprintf(fp, "%s\n %s \n %s\n %s\n", &person.codei, &person.namei, &person.agei, &person.ph);
     fclose(fp);
-        
- printf("\n\n\t\t\tGone Back To Menu Page");
 
- printf("\n\n\t\t\tTicket Booked Sucessfully");
- 
+    printf("\n\n\t\t\tGone Back To Menu Page");
 
- {
-  menucall();
- }
+    printf("\n\n\t\t\tTicket Booked Sucessfully");
 
+    {
+      menucall();
+    }
+  }
+}
 
-  }    
-
-
-    } 
-
+//---------------------------------------------------------------------------------------------------
 
 void update_newdelhi_express()
 
 {
-    
-   struct per person;
- char n[21];
 
-    FILE *fp;
+  struct per person;
+  char n[21];
 
-    FILE *fp1;
-    
-      
-     fp=fopen("newdelhi_express.txt","r+");
-  
-  if (fp==NULL)
+  FILE *fp;
+
+  FILE *fp1;
+
+  fp = fopen("newdelhi_express.txt", "r+");
+
+  if (fp == NULL)
   {
     printf("\ncannot find file no data found");
   }
 
-printf("\n\n enter person name whose you want to delete");
-scanf("%s",&n);
+  printf("\n\n enter person name whose you want to delete");
+  scanf("%s", &n);
 
-while(fscanf(fp,"%s %s %s %s",&person.codei,&person.namei,&person.agei,&person.ph)!=EOF)
+  while (fscanf(fp, "%s %s %s %s", &person.codei, &person.namei, &person.agei, &person.ph) != EOF)
 
-{
+  {
 
-if(strcmp(&person.namei,n)==0)
+    if (strcmp(&person.namei, n) == 0)
 
-{ 
-  printf("Record Found");
- fflush(stdin);
+    {
+      printf("Record Found");
+      fflush(stdin);
 
- printf("%s %s %s %s",&person.namei,&person.codei,&person.agei,&person.ph);
+      printf("%s %s %s %s", &person.namei, &person.codei, &person.agei, &person.ph);
 
+      fp1 = fopen("newdelhi_express.txt", "r+");
 
+      strcpy(person.namei, "OLD TICKET HAS BEEN CANCELLED\n");
+      strcpy(person.codei, "Null");
+      strcpy(person.agei, "Null");
+      strcpy(person.ph, "Null");
 
-  fp1=fopen("newdelhi_express.txt","r+");
+      fprintf(fp1, "%s\n %s\n %s\n %s\n", &person.namei, &person.codei, &person.agei, &person.ph);
 
-  strcpy(person.namei,"OLD TICKET HAS BEEN CANCELLED\n");
-  strcpy(person.codei ,"Null");
-  strcpy(person.agei,"Null");
-  strcpy(person.ph,"Null");
+      printf("\nRecord Deleted");
+    }
 
-  fprintf(fp1,"%s\n %s\n %s\n %s\n",&person.namei,&person.codei,&person.agei,&person.ph);
-  
-printf("\nRecord Deleted");
+    else
+    {
+      printf("Record Not Found");
+    }
+  }
 
-}
-
-else 
- {
-  printf("Record Not Found");
- }
- 
- } 
-
- { 
-  menucall();
- }
+  {
+    menucall();
+  }
 
   fclose(fp);
   fclose(fp1);
-
- }
-
-      void amravati_express()
-
-   
+}
+//---------------------------------------------------------------------------------------------------
+void amravati_express()
 
 {
-  
-printf("\t\t\t-------WELCOME TO AMBARNATH EXPRESS-------\n\n");
- 
-        printf("\t====================================================\n");
-        printf("\t TRAIN CODE : 202 \tCOACHES AVAILABLE\n\n");
-        printf("\t                       A.C. FIRST CLASS  : 19\n\n");
-        printf("\t TIMING : 2.17 PM      A.C. 2 TIER : 11\n\n");
-        printf("\t PRICE  : 199rs        SECOND SITTING : 9 \n\n");
-        printf("\t                       GENERAL : 5  \n");
-        printf("\t================================================");
-  
-   char name;
-   char ds;
-        printf("\nDo You Want To Book Ticket Y/N\n\n"); 
-         fflush(stdin);
-        scanf("%c",&ds);  
-         fflush(stdin);
-         
-        if(ds=='y'||ds=='Y')
-        
-        {
-         
 
-         FILE *fp;
-   //  char name[20];
-   //  char code[20];
-   //  char age[20];
-    //char f1;
+  printf("\t\t\t-------WELCOME TO AMBARNATH EXPRESS-------\n\n");
+
+  printf("\t====================================================\n");
+  printf("\t TRAIN CODE : 202 \tCOACHES AVAILABLE\n\n");
+  printf("\t                       A.C. FIRST CLASS  : 19\n\n");
+  printf("\t TIMING : 2.17 PM      A.C. 2 TIER : 11\n\n");
+  printf("\t PRICE  : 199rs        SECOND SITTING : 9 \n\n");
+  printf("\t                       GENERAL : 5  \n");
+  printf("\t================================================");
+
+  char name;
+  char ds;
+  printf("\nDo You Want To Book Ticket Y/N\n\n");
+  fflush(stdin);
+  scanf("%c", &ds);
+  fflush(stdin);
+
+  if (ds == 'y' || ds == 'Y')
+
+  {
+
+    FILE *fp;
+    //  char name[20];
+    //  char code[20];
+    //  char age[20];
+    // char f1;
     struct per person;
 
-      fp=fopen("ambarnath_express.txt","w+");
-      
-printf("\n\n\t\tEnter Train Code:-\t");
-      scanf("%s",&person.codei);
+    fp = fopen("ambarnath_express.txt", "w+");
 
+    printf("\n\n\t\tEnter Train Code:-\t");
+    scanf("%s", &person.codei);
 
-      printf("\n\n\t\tEnter Passanger  Name:-\t");
-      scanf("%s",&person.namei);
+    printf("\n\n\t\tEnter Passanger  Name:-\t");
+    scanf("%s", &person.namei);
 
-      printf("\n\n\t\tEnter Passanger Age:-\t");
-      scanf("%s",&person.agei);
+    printf("\n\n\t\tEnter Passanger Age:-\t");
+    scanf("%s", &person.agei);
 
-       printf("\n\n\t\tEnter Contact Number:-\t");
-      scanf("%s",&person.ph);
+    printf("\n\n\t\tEnter Contact Number:-\t");
+    scanf("%s", &person.ph);
 
-
-     fprintf(fp,"%s\n %s \n %s\n %s\n",&person.codei,&person.namei,&person.agei,&person.ph);
+    fprintf(fp, "%s\n %s \n %s\n %s\n", &person.codei, &person.namei, &person.agei, &person.ph);
     fclose(fp);
-        
- printf("\n\n\t\t\tGone Back To Menu Page");
 
- printf("\n\n\t\t\tTicket Booked Sucessfully");
- 
+    printf("\n\n\t\t\tGone Back To Menu Page");
 
- {
-  menucall();
- }
+    printf("\n\n\t\t\tTicket Booked Sucessfully");
 
-
-  }    
-
-
+    {
+      menucall();
+    }
+  }
 }
-
+//---------------------------------------------------------------------------------------------------
 
 void update_amravati_express()
 
-
 {
-    
-   struct per person;
- char n[21];
 
-    FILE *fp;
+  struct per person;
+  char n[21];
 
-    FILE *fp1;
-    
-      
-     fp=fopen("ambarnath_express.txt","r+");
-  
-  if (fp==NULL)
+  FILE *fp;
+
+  FILE *fp1;
+
+  fp = fopen("ambarnath_express.txt", "r+");
+
+  if (fp == NULL)
   {
     printf("\ncannot find file no data found");
   }
 
-printf("\n\n enter person name whose you want to delete");
-scanf("%s",&n);
+  printf("\n\n enter person name whose you want to delete");
+  scanf("%s", &n);
 
-while(fscanf(fp,"%s %s %s %s",&person.codei,&person.namei,&person.agei,&person.ph)!=EOF)
+  while (fscanf(fp, "%s %s %s %s", &person.codei, &person.namei, &person.agei, &person.ph) != EOF)
 
-{
+  {
 
-if(strcmp(&person.namei,n)==0)
+    if (strcmp(&person.namei, n) == 0)
 
-{ 
-  printf("Record Found");
- fflush(stdin);
+    {
+      printf("Record Found");
+      fflush(stdin);
 
- printf("%s %s %s %s",&person.namei,&person.codei,&person.agei,&person.ph);
+      printf("%s %s %s %s", &person.namei, &person.codei, &person.agei, &person.ph);
 
+      fp1 = fopen("ambarnath_express.txt", "r+");
 
+      strcpy(person.namei, "OLD TICKET HAS BEEN CANCELLED\n");
+      strcpy(person.codei, "Null");
+      strcpy(person.agei, "Null");
+      strcpy(person.ph, "Null");
 
-  fp1=fopen("ambarnath_express.txt","r+");
+      fprintf(fp1, "%s\n %s\n %s\n %s\n", &person.namei, &person.codei, &person.agei, &person.ph);
 
-  strcpy(person.namei,"OLD TICKET HAS BEEN CANCELLED\n");
-  strcpy(person.codei ,"Null");
-  strcpy(person.agei,"Null");
-  strcpy(person.ph,"Null");
+      printf("\nRecord Deleted");
+    }
 
-  fprintf(fp1,"%s\n %s\n %s\n %s\n",&person.namei,&person.codei,&person.agei,&person.ph);
-  
-printf("\nRecord Deleted");
+    else
+    {
+      printf("Record Not Found");
+    }
+  }
 
-}
-
-else 
- {
-  printf("Record Not Found");
- }
- 
- } 
-
- { 
-  menucall();
- }
+  {
+    menucall();
+  }
 
   fclose(fp);
   fclose(fp1);
-
- }
-
- void mumbai_cst_express()
-
-   
+}
+//---------------------------------------------------------------------------------------------------
+void mumbai_cst_express()
 
 {
-  
-printf("\t\t\t-------WELCOME TO MUMBAI CST EXPRESS-------\n\n");
- 
-        printf("\t====================================================\n");
-        printf("\t TRAIN CODE : 202 \tCOACHES AVAILABLE\n\n");
-        printf("\t                       A.C. FIRST CLASS  : 19\n\n");
-        printf("\t TIMING : 2.17 PM      A.C. 2 TIER : 11\n\n");
-        printf("\t PRICE  : 199rs        SECOND SITTING : 9 \n\n");
-        printf("\t                       GENERAL : 5  \n");
-        printf("\t================================================");
-  
-   char name;
-   char ds;
-        printf("\nDo You Want To Book Ticket Y/N\n\n"); 
-         fflush(stdin);
-        scanf("%c",&ds);  
-         fflush(stdin);
-         
-        if(ds=='y'||ds=='Y')
-        
-        {
-         
 
-         FILE *fp;
-   //  char name[20];
-   //  char code[20];
-   //  char age[20];
-    //char f1;
+  printf("\t\t\t-------WELCOME TO MUMBAI CST EXPRESS-------\n\n");
+
+  printf("\t====================================================\n");
+  printf("\t TRAIN CODE : 202 \tCOACHES AVAILABLE\n\n");
+  printf("\t                       A.C. FIRST CLASS  : 19\n\n");
+  printf("\t TIMING : 2.17 PM      A.C. 2 TIER : 11\n\n");
+  printf("\t PRICE  : 199rs        SECOND SITTING : 9 \n\n");
+  printf("\t                       GENERAL : 5  \n");
+  printf("\t================================================");
+
+  char name;
+  char ds;
+  printf("\nDo You Want To Book Ticket Y/N\n\n");
+  fflush(stdin);
+  scanf("%c", &ds);
+  fflush(stdin);
+
+  if (ds == 'y' || ds == 'Y')
+
+  {
+
+    FILE *fp;
+    //  char name[20];
+    //  char code[20];
+    //  char age[20];
+    // char f1;
     struct per person;
 
-printf("\n\n\t\tEnter Train Code:-\t");
-      scanf("%s",&person.codei);
+    printf("\n\n\t\tEnter Train Code:-\t");
+    scanf("%s", &person.codei);
 
+    printf("\n\n\t\tEnter Passanger  Name:-\t");
+    scanf("%s", &person.namei);
 
-      printf("\n\n\t\tEnter Passanger  Name:-\t");
-      scanf("%s",&person.namei);
+    printf("\n\n\t\tEnter Passanger Age:-\t");
+    scanf("%s", &person.agei);
 
-      printf("\n\n\t\tEnter Passanger Age:-\t");
-      scanf("%s",&person.agei);
+    printf("\n\n\t\tEnter Contact Number:-\t");
+    scanf("%s", &person.ph);
 
-       printf("\n\n\t\tEnter Contact Number:-\t");
-      scanf("%s",&person.ph);
-
-
-     fprintf(fp,"%s\n %s \n %s\n %s\n",&person.codei,&person.namei,&person.agei,&person.ph);
+    fprintf(fp, "%s\n %s \n %s\n %s\n", &person.codei, &person.namei, &person.agei, &person.ph);
     fclose(fp);
-        
- printf("\n\n\t\t\tGone Back To Menu Page");
 
- printf("\n\n\t\t\tTicket Booked Sucessfully");
- 
+    printf("\n\n\t\t\tGone Back To Menu Page");
 
- {
-  menucall();
- }
+    printf("\n\n\t\t\tTicket Booked Sucessfully");
 
-
-  }    
-
-
+    {
+      menucall();
+    }
+  }
 }
+//---------------------------------------------------------------------------------------------------
 
 void update_mumbaicst_express()
 
-
 {
-    
-   struct per person;
- char n[21];
 
-    FILE *fp;
+  struct per person;
+  char n[21];
 
-    FILE *fp1;
-    
-      
-     fp=fopen("mumbai_express.txt","r+");
-  
-  if (fp==NULL)
+  FILE *fp;
+
+  FILE *fp1;
+
+  fp = fopen("mumbai_express.txt", "r+");
+
+  if (fp == NULL)
   {
     printf("\ncannot find file no data found");
   }
 
-printf("\n\n enter person name whose you want to delete");
-scanf("%s",&n);
+  printf("\n\n enter person name whose you want to delete");
+  scanf("%s", &n);
 
-while(fscanf(fp,"%s %s %s %s",&person.codei,&person.namei,&person.agei,&person.ph)!=EOF)
+  while (fscanf(fp, "%s %s %s %s", &person.codei, &person.namei, &person.agei, &person.ph) != EOF)
 
-{
+  {
 
-if(strcmp(&person.namei,n)==0)
+    if (strcmp(&person.namei, n) == 0)
 
-{ 
-  printf("Record Found");
- fflush(stdin);
+    {
+      printf("Record Found");
+      fflush(stdin);
 
- printf("%s %s %s %s",&person.namei,&person.codei,&person.agei,&person.ph);
+      printf("%s %s %s %s", &person.namei, &person.codei, &person.agei, &person.ph);
 
+      fp1 = fopen("mumbai_express.txt", "r+");
 
-  fp1=fopen("mumbai_express.txt","r+");
+      strcpy(person.namei, "OLD TICKET HAS BEEN CANCELLED\n");
+      strcpy(person.codei, "Null");
+      strcpy(person.agei, "Null");
+      strcpy(person.ph, "Null");
 
-  strcpy(person.namei,"OLD TICKET HAS BEEN CANCELLED\n");
-  strcpy(person.codei ,"Null");
-  strcpy(person.agei,"Null");
-  strcpy(person.ph,"Null");
+      fprintf(fp1, "%s\n %s\n %s\n %s\n", &person.namei, &person.codei, &person.agei, &person.ph);
 
-  fprintf(fp1,"%s\n %s\n %s\n %s\n",&person.namei,&person.codei,&person.agei,&person.ph);
-  
-printf("\nRecord Deleted");
+      printf("\nRecord Deleted");
+    }
 
-}
+    else
+    {
+      printf("Record Not Found");
+    }
+  }
 
-else 
- {
-  printf("Record Not Found");
- }
- 
- } 
-
- { 
-  menucall();
- }
+  {
+    menucall();
+  }
 
   fclose(fp);
   fclose(fp1);
-
- }
-
- void vande_bharat_express()
-
-   
+}
+//---------------------------------------------------------------------------------------------------
+void vande_bharat_express()
 
 {
-  
-printf("\t\t\t-------WELCOME TO VANDE BHARAT EXPRESS-------\n\n");
- 
-        printf("\t====================================================\n");
-        printf("\t TRAIN CODE : 202 \tCOACHES AVAILABLE\n\n");
-        printf("\t                       A.C. FIRST CLASS  : 19\n\n");
-        printf("\t TIMING : 5.10 PM      A.C. 2 TIER : 11\n\n");
-        printf("\t PRICE  : 1099rs        SECOND SITTING : 9 \n\n");
-        printf("\t                       GENERAL : 5  \n");
-        printf("\t================================================");
-  
-   char name;
-   char ds;
-        printf("\nDo You Want To Book Ticket Y/N\n\n"); 
-         fflush(stdin);
-        scanf("%c",&ds);  
-         fflush(stdin);
-         
-        if(ds=='y'||ds=='Y')
-        
-        {
-         
 
-         FILE *fp;
-   //  char name[20];
-   //  char code[20];
-   //  char age[20];
-    //char f1;
+  printf("\t\t\t-------WELCOME TO VANDE BHARAT EXPRESS-------\n\n");
+
+  printf("\t====================================================\n");
+  printf("\t TRAIN CODE : 202 \tCOACHES AVAILABLE\n\n");
+  printf("\t                       A.C. FIRST CLASS  : 19\n\n");
+  printf("\t TIMING : 5.10 PM      A.C. 2 TIER : 11\n\n");
+  printf("\t PRICE  : 1099rs        SECOND SITTING : 9 \n\n");
+  printf("\t                       GENERAL : 5  \n");
+  printf("\t================================================");
+
+  char name;
+  char ds;
+  printf("\nDo You Want To Book Ticket Y/N\n\n");
+  fflush(stdin);
+  scanf("%c", &ds);
+  fflush(stdin);
+
+  if (ds == 'y' || ds == 'Y')
+
+  {
+
+    FILE *fp;
+    //  char name[20];
+    //  char code[20];
+    //  char age[20];
+    // char f1;
     struct per person;
 
-      fp=fopen("vandebharat_express.txt","w+");
-      
-printf("\n\n\t\tEnter Train Code:-\t");
-      scanf("%s",&person.codei);
+    fp = fopen("vandebharat_express.txt", "w+");
 
+    printf("\n\n\t\tEnter Train Code:-\t");
+    scanf("%s", &person.codei);
 
-      printf("\n\n\t\tEnter Passanger  Name:-\t");
-      scanf("%s",&person.namei);
+    printf("\n\n\t\tEnter Passanger  Name:-\t");
+    scanf("%s", &person.namei);
 
-      printf("\n\n\t\tEnter Passanger Age:-\t");
-      scanf("%s",&person.agei);
+    printf("\n\n\t\tEnter Passanger Age:-\t");
+    scanf("%s", &person.agei);
 
-       printf("\n\n\t\tEnter Contact Number:-\t");
-      scanf("%s",&person.ph);
+    printf("\n\n\t\tEnter Contact Number:-\t");
+    scanf("%s", &person.ph);
 
-
-     fprintf(fp,"%s\n %s \n %s\n %s\n",&person.codei,&person.namei,&person.agei,&person.ph);
+    fprintf(fp, "%s\n %s \n %s\n %s\n", &person.codei, &person.namei, &person.agei, &person.ph);
     fclose(fp);
-        
- printf("\n\n\t\t\tGone Back To Menu Page");
 
- printf("\n\n\t\t\tTicket Booked Sucessfully");
- 
+    printf("\n\n\t\t\tGone Back To Menu Page");
 
- {
-  menucall();
- }
+    printf("\n\n\t\t\tTicket Booked Sucessfully");
 
-
-  }    
-
-
+    {
+      menucall();
+    }
+  }
 }
-
+//---------------------------------------------------------------------------------------------------
 
 void update_vandebharat_express()
 
-
 {
-    
-   struct per person;
- char n[21];
 
-    FILE *fp;
+  struct per person;
+  char n[21];
 
-    FILE *fp1;
-    
-      
-     fp=fopen("vandebharat_express.txt","r+");
-  
-  if (fp==NULL)
+  FILE *fp;
+
+  FILE *fp1;
+
+  fp = fopen("vandebharat_express.txt", "r+");
+
+  if (fp == NULL)
   {
     printf("\ncannot find file no data found");
   }
 
-printf("\n\n enter person name whose you want to delete");
-scanf("%s",&n);
+  printf("\n\n enter person name whose you want to delete");
+  scanf("%s", &n);
 
-while(fscanf(fp,"%s %s %s %s",&person.codei,&person.namei,&person.agei,&person.ph)!=EOF)
+  while (fscanf(fp, "%s %s %s %s", &person.codei, &person.namei, &person.agei, &person.ph) != EOF)
 
-{
+  {
 
-if(strcmp(&person.namei,n)==0)
+    if (strcmp(&person.namei, n) == 0)
 
-{ 
-  printf("Record Found");
- fflush(stdin);
+    {
+      printf("Record Found");
+      fflush(stdin);
 
- printf("%s %s %s %s",&person.namei,&person.codei,&person.agei,&person.ph);
+      printf("%s %s %s %s", &person.namei, &person.codei, &person.agei, &person.ph);
 
+      fp1 = fopen("vandebharat_express.txt", "r+");
 
-  fp1=fopen("vandebharat_express.txt","r+");
+      strcpy(person.namei, "OLD TICKET HAS BEEN CANCELLED\n");
+      strcpy(person.codei, "Null");
+      strcpy(person.agei, "Null");
+      strcpy(person.ph, "Null");
 
-  strcpy(person.namei,"OLD TICKET HAS BEEN CANCELLED\n");
-  strcpy(person.codei ,"Null");
-  strcpy(person.agei,"Null");
-  strcpy(person.ph,"Null");
+      fprintf(fp1, "%s\n %s\n %s\n %s\n", &person.namei, &person.codei, &person.agei, &person.ph);
 
-  fprintf(fp1,"%s\n %s\n %s\n %s\n",&person.namei,&person.codei,&person.agei,&person.ph);
-  
-printf("\nRecord Deleted");
+      printf("\nRecord Deleted");
+    }
 
-}
+    else
+    {
+      printf("Record Not Found");
+    }
+  }
 
-else 
- {
-  printf("Record Not Found");
- }
- 
- } 
-
- { 
-  menucall();
- }
+  {
+    menucall();
+  }
 
   fclose(fp);
   fclose(fp1);
+}
 
- }
+//---------------------------------------------------------------------------------------------------
 
-
- void jan_shatab_express()
-
-   
+void jan_shatab_express()
 
 {
-  
-printf("\t\t\t-------WELCOME TO JAN SHATABDI EXPRESS-------\n\n");
- 
-        printf("\t====================================================\n");
-        printf("\t TRAIN CODE : 897 \tCOACHES AVAILABLE\n\n");
-        printf("\t                       A.C. FIRST CLASS  : 19\n\n");
-        printf("\t TIMING : 7.007PM      A.C. 2 TIER : 11\n\n");
-        printf("\t PRICE  : 107rs        SECOND SITTING : 9 \n\n");
-        printf("\t                       GENERAL : 5  \n");
-        printf("\t================================================");
-  
-   char name;
-   char ds;
-        printf("\nDo You Want To Book Ticket Y/N\n\n"); 
-         fflush(stdin);
-        scanf("%c",&ds);  
-         fflush(stdin);
-         
-        if(ds=='y'||ds=='Y')
-        
-        {
-         
 
-         FILE *fp;
-   //  char name[20];
-   //  char code[20];
-   //  char age[20];
-    //char f1;
+  printf("\t\t\t-------WELCOME TO JAN SHATABDI EXPRESS-------\n\n");
+
+  printf("\t====================================================\n");
+  printf("\t TRAIN CODE : 897 \tCOACHES AVAILABLE\n\n");
+  printf("\t                       A.C. FIRST CLASS  : 19\n\n");
+  printf("\t TIMING : 7.007PM      A.C. 2 TIER : 11\n\n");
+  printf("\t PRICE  : 107rs        SECOND SITTING : 9 \n\n");
+  printf("\t                       GENERAL : 5  \n");
+  printf("\t================================================");
+
+  char name;
+  char ds;
+  printf("\nDo You Want To Book Ticket Y/N\n\n");
+  fflush(stdin);
+  scanf("%c", &ds);
+  fflush(stdin);
+
+  if (ds == 'y' || ds == 'Y')
+
+  {
+
+    FILE *fp;
+    //  char name[20];
+    //  char code[20];
+    //  char age[20];
+    // char f1;
     struct per person;
 
-      fp=fopen("janshatab_express.txt","w+");
-      
-printf("\n\n\t\tEnter Train Code:-\t");
-      scanf("%s",&person.codei);
+    fp = fopen("janshatab_express.txt", "w+");
 
+    printf("\n\n\t\tEnter Train Code:-\t");
+    scanf("%s", &person.codei);
 
-      printf("\n\n\t\tEnter Passanger  Name:-\t");
-      scanf("%s",&person.namei);
+    printf("\n\n\t\tEnter Passanger  Name:-\t");
+    scanf("%s", &person.namei);
 
-      printf("\n\n\t\tEnter Passanger Age:-\t");
-      scanf("%s",&person.agei);
+    printf("\n\n\t\tEnter Passanger Age:-\t");
+    scanf("%s", &person.agei);
 
-       printf("\n\n\t\tEnter Contact Number:-\t");
-      scanf("%s",&person.ph);
+    printf("\n\n\t\tEnter Contact Number:-\t");
+    scanf("%s", &person.ph);
 
-
-     fprintf(fp,"%s\n %s \n %s\n %s\n",&person.codei,&person.namei,&person.agei,&person.ph);
+    fprintf(fp, "%s\n %s \n %s\n %s\n", &person.codei, &person.namei, &person.agei, &person.ph);
     fclose(fp);
-        
- printf("\n\n\t\t\tGone Back To Menu Page");
 
- printf("\n\n\t\t\tTicket Booked Sucessfully");
- 
+    printf("\n\n\t\t\tGone Back To Menu Page");
 
- {
-  menucall();
- }
+    printf("\n\n\t\t\tTicket Booked Sucessfully");
 
-
-  }    
-
-
+    {
+      menucall();
+    }
+  }
 }
 
-void update_janshatab_express() 
+//---------------------------------------------------------------------------------------------------
 
+void update_janshatab_express()
 
 {
-    
-   struct per person;
- char n[21];
 
-    FILE *fp;
+  struct per person;
+  char n[21];
 
-    FILE *fp1;
-    
-      
-     fp=fopen("janshatab_express.txt","r+");
-  
-  if (fp==NULL)
+  FILE *fp;
+
+  FILE *fp1;
+
+  fp = fopen("janshatab_express.txt", "r+");
+
+  if (fp == NULL)
   {
     printf("\ncannot find file no data found");
   }
 
-printf("\n\n enter person name whose you want to delete");
-scanf("%s",&n);
+  printf("\n\n enter person name whose you want to delete");
+  scanf("%s", &n);
 
-while(fscanf(fp,"%s %s %s %s",&person.codei,&person.namei,&person.agei,&person.ph)!=EOF)
+  while (fscanf(fp, "%s %s %s %s", &person.codei, &person.namei, &person.agei, &person.ph) != EOF)
 
-{
+  {
 
-if(strcmp(&person.namei,n)==0)
+    if (strcmp(&person.namei, n) == 0)
 
-{ 
-  printf("Record Found");
- fflush(stdin);
+    {
+      printf("Record Found");
+      fflush(stdin);
 
- printf("%s %s %s %s",&person.namei,&person.codei,&person.agei,&person.ph);
+      printf("%s %s %s %s", &person.namei, &person.codei, &person.agei, &person.ph);
 
+      fp1 = fopen("janshatab_express.txt", "r+");
 
-  fp1=fopen("janshatab_express.txt","r+");
+      strcpy(person.namei, "OLD TICKET HAS BEEN CANCELLED\n");
+      strcpy(person.codei, "Null");
+      strcpy(person.agei, "Null");
+      strcpy(person.ph, "Null");
 
-  strcpy(person.namei,"OLD TICKET HAS BEEN CANCELLED\n");
-  strcpy(person.codei ,"Null");
-  strcpy(person.agei,"Null");
-  strcpy(person.ph,"Null");
+      fprintf(fp1, "%s\n %s\n %s\n %s\n", &person.namei, &person.codei, &person.agei, &person.ph);
 
-  fprintf(fp1,"%s\n %s\n %s\n %s\n",&person.namei,&person.codei,&person.agei,&person.ph);
-  
-printf("\nRecord Deleted");
+      printf("\nRecord Deleted");
+    }
 
-}
+    else
+    {
+      printf("Record Not Found");
+    }
+  }
 
-else 
- {
-  printf("Record Not Found");
- }
- 
- } 
-
- { 
-  menucall();
- }
+  {
+    menucall();
+  }
 
   fclose(fp);
   fclose(fp1);
-
- }
-
-
-
-
-
- void bookanothertrain()
-{
-  
-
-  
-     booktrain();
-  
-
 }
 
+//---------------------------------------------------------------------------------------------------
 
+void bookanothertrain()
+{
 
- void patna_express()
-    {
-    
-   printf("\t\t\t-------WELCOME TO PATNA EXPRESS-------\n\n");
- 
-        printf("\t====================================================\n");
-        printf("\t TRAIN CODE : 289 \tCOACHES AVAILABLE\n\n");
-        printf("\t                        A.C. FIRST CLASS  : 19\n\n");
-        printf("\t TIMING : 8.20 AM       A.C. 2 TIER : 11\n\n");
-        printf("\t PRICE  : 510rs         SECOND SITTING : 9 \n\n");
-        printf("\t                        GENERAL : 5  \n");
-        printf("\t================================================");
-  
-   char name;
-   char ds;
-        printf("\nDo You Want To Book Ticket Y/N\n\n"); 
-         fflush(stdin);
-        scanf("%c",&ds);  
-         fflush(stdin);
-         
-        if(ds=='y'||ds=='Y')
-        
-        {
-         
+  booktrain();
+}
+
+void patna_express()
+{
+
+  printf("\t\t\t-------WELCOME TO PATNA EXPRESS-------\n\n");
+
+  printf("\t====================================================\n");
+  printf("\t TRAIN CODE : 289 \tCOACHES AVAILABLE\n\n");
+  printf("\t                        A.C. FIRST CLASS  : 19\n\n");
+  printf("\t TIMING : 8.20 AM       A.C. 2 TIER : 11\n\n");
+  printf("\t PRICE  : 510rs         SECOND SITTING : 9 \n\n");
+  printf("\t                        GENERAL : 5  \n");
+  printf("\t================================================");
+
+  char name;
+  char ds;
+  printf("\nDo You Want To Book Ticket Y/N\n\n");
+  fflush(stdin);
+  scanf("%c", &ds);
+  fflush(stdin);
+
+  if (ds == 'y' || ds == 'Y')
+
+  {
 
     // char name[20];
     // char code[20];
     // char age[20];
-     char f1;
-  
+    char f1;
 
+    struct per person;
+    FILE *fp;
 
-   struct per person;
-   FILE *fp;
+    fp = fopen("patna_eexpress.txt", "w+");
+    if (fp == NULL)
+    {
+      printf("\ncannot open file ");
+    }
 
-     fp=fopen("patna_eexpress.txt","w+");
-      if (fp==NULL)
-      {
-        printf("\ncannot open file ");
-      }
+    printf("\n\n\t\tEnter Train Code:-\t");
+    scanf("%s", &person.codei);
 
-      printf("\n\n\t\tEnter Train Code:-\t");
-      scanf("%s",&person.codei);
+    printf("\n\n\t\tEnter Passanger  Name:-\t");
+    scanf("%s", &person.namei);
 
+    printf("\n\n\t\tEnter Passanger Age:-\t");
+    scanf("%s", &person.agei);
 
-      printf("\n\n\t\tEnter Passanger  Name:-\t");
-      scanf("%s",&person.namei);
+    printf("\n\n\t\tEnter Contact Number:-\t");
+    scanf("%s", &person.ph);
 
-      printf("\n\n\t\tEnter Passanger Age:-\t");
-      scanf("%s",&person.agei);
-
-       printf("\n\n\t\tEnter Contact Number:-\t");
-      scanf("%s",&person.ph);
-
-
-     fprintf(fp,"%s\n %s \n %s\n %s\n",&person.codei,&person.namei,&person.agei,&person.ph);
+    fprintf(fp, "%s\n %s \n %s\n %s\n", &person.codei, &person.namei, &person.agei, &person.ph);
     fclose(fp);
-        
- printf("\n\n\t\t\tGone Back To Menu Page");
 
- printf("\n\n\t\t\tTicket Booked Sucessfully");
- 
+    printf("\n\n\t\t\tGone Back To Menu Page");
 
- {
-  menucall();
- }
+    printf("\n\n\t\t\tTicket Booked Sucessfully");
+//---------------------------------------------------------------------------
+ //END HERE OF INSERT AND DELETE FUNCTIONS
+    {
+      menucall();
+    }
+  }
+}
 
-
-  }    
-
-    } 
-
-
-
-
-   
 
