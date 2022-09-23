@@ -67,6 +67,8 @@ void update_vandebharat_express();
 
 //---------------------------------------------------------------
 
+void changepatna();
+
 main() // SIGN UP PAGE
 {
   char i;
@@ -164,8 +166,10 @@ void menucall()
   printf("\t\t\t||        Press <5> For Back To Menu              ||\n");
   printf("\t\t\t||        Press <6> for login page                ||\n");
   printf("\t\t\t||        Press <7> For Show Booked Train Record  ||\n");
+  printf("\t\t\t||       Press <8> For Update Booked Train Record ||\n");
   printf("\t\t\t||================================================||\n");
-
+  
+  
   int ch;
 
   //----------------------------------------------------------------
@@ -219,6 +223,9 @@ void menucall()
     }
   }
 
+ case 8:
+ 	 changepatna();
+ 	break;
   } // switchclose
 
 } // void menucall close
@@ -257,7 +264,7 @@ void show_record()
       printf("cannot find/open file");
     }
     char i;
-    i = fgetc(fp);
+    //i = fgetc(fp);
     printf("\n\n JANATA EXPRESS RECORD \n");
     while ((i = fgetc(fp)) != (char)EOF)
       printf("%c", i);
@@ -1626,3 +1633,59 @@ void patna_express()
 }
 
 
+
+void changepatna()
+{
+	struct per person;
+char n[20],field[20],newdata[20],ch;
+FILE *fp,*fp1;
+fp=fopen("janata_express.txt ","r+");  
+if (fp==NULL)
+{
+	printf("\n cannot open file");
+}
+	printf("\n enter person whose you want to update");
+	scanf("%s",n);
+	
+	
+while(fscanf(fp,"%s %s %s %s",&person.codei,&person.namei,&person.agei,&person.ph)!=EOF)
+
+if(strcmp(&person.namei,n)==0)
+	
+{ 
+  printf("Record Found");
+	
+	 printf("%s %s %s %s",&person.namei,&person.codei,&person.agei,&person.ph);
+	 
+	 printf("\nenter field which you want to updarwe");
+	 scanf("%s",field);
+	 if(strcmp(field,"namei")==0)
+	 {
+	   printf("\nenter new data");
+	   scanf("%s",person.namei);
+	  	   fp1=fopen("janata_express.txt ","r+");
+	    fprintf(fp1,"%s\n %s\n %s\n %s\n",&person.namei,&person.codei,&person.agei,&person.ph);
+	 
+	 
+	 printf("record updated");
+}
+
+else 
+{
+	printf("record not found");
+}
+	 
+	
+	 {
+	 	menucall;
+	 } 
+	 
+}
+ 
+	
+	 
+fclose(fp);	 
+fclose(fp1);
+	 
+	
+}
