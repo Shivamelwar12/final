@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 // variables
 struct train
 {
@@ -66,8 +65,11 @@ void update_mumbaicst_express();
 void update_vandebharat_express();
 
 //---------------------------------------------------------------
-
-void changepatna();
+ void changejanata();
+ void changepatna();
+ void change();
+ void changemumbai();
+ void changevande();
 
 main() // SIGN UP PAGE
 {
@@ -149,10 +151,10 @@ void login2()
   } while (i <= 3);
 }
 //---------------------------------------------------------------------------------
-// MAIN MENU 
+// MAIN MENU
 void menucall()
 {
-
+  
   // FILE *fp;
   // fp=fopen("menu.txt","w");
   // int ch;
@@ -161,23 +163,22 @@ void menucall()
   printf("\t\t\t====================================================\n");
   printf("\t\t\t||        Press <1> For Book Train                ||\n");
   printf("\t\t\t||        Press <2> For Booked Train              ||\n");
-  printf("\t\t\t||        Press <3> For Bancel Train              ||\n");
+  printf("\t\t\t||        Press <3> For Cancel Train              ||\n");
   printf("\t\t\t||        Press <4> For Book Another Train        ||\n");
   printf("\t\t\t||        Press <5> For Back To Menu              ||\n");
-  printf("\t\t\t||        Press <6> for login page                ||\n");
+  printf("\t\t\t||        Press <6> For Back login page           ||\n");
   printf("\t\t\t||        Press <7> For Show Booked Train Record  ||\n");
   printf("\t\t\t||       Press <8> For Update Booked Train Record ||\n");
   printf("\t\t\t||================================================||\n");
-  
-  
+
   int ch;
 
   //----------------------------------------------------------------
-  //CHOICES
+  // CHOICES
 
   printf("\n\nENTER CHOICE:-\t");
   scanf("%d", &ch);
-
+  
   switch (ch)
   {
 
@@ -212,6 +213,7 @@ void menucall()
     show_record();
     break;
 
+
   default:
   {
     if ("ch==1,2,3,4,5")
@@ -223,11 +225,13 @@ void menucall()
     }
   }
 
- case 8:
- 	 changepatna();
- 	break;
-  } // switchclose
+    // case 8:
+   //  change();
+   // break;
 
+   
+  } // switchclose
+  
 } // void menucall close
 
 void show_record()
@@ -249,7 +253,7 @@ void show_record()
   printf("\t\t\t||   Press <7> For Vande Bharat Express   ||\n");
   printf("\t\t\t||   Press <8> For JAN Shatab DI Express  ||\n");
   printf("\t\t\t||========================================||\n");
-//---------------------------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------------------------
   printf("\nSelect Your Choice:-\t");
   scanf("%d", &gh);
 
@@ -264,7 +268,7 @@ void show_record()
       printf("cannot find/open file");
     }
     char i;
-    //i = fgetc(fp);
+    // i = fgetc(fp);
     printf("\n\n JANATA EXPRESS RECORD \n");
     while ((i = fgetc(fp)) != (char)EOF)
       printf("%c", i);
@@ -282,7 +286,7 @@ void show_record()
     {
       printf("cannot find/open file");
     }
-    i = fgetc(fp);
+    // i = fgetc(fp);
     printf("\n\n PATNA EXPRESS RECORD \n");
     while ((i = fgetc(fp)) != (char)EOF)
       printf("%c", i);
@@ -300,7 +304,7 @@ void show_record()
     {
       printf("cannot find/open file");
     }
-    i = fgetc(fp);
+    // i = fgetc(fp);
     printf("\n\n PUNJAB MAIL  RECORD \n");
     while ((i = fgetc(fp)) != (char)EOF)
       printf("%c", i);
@@ -313,11 +317,11 @@ void show_record()
 
     fp = fopen("newdelhi_express.txt", "r");
 
-    if (fp == NULL)
+    // if (fp == NULL)
     {
       printf("cannot find/open file");
     }
-    i = fgetc(fp);
+    //  i = fgetc(fp);
     printf("\n\n NEW DELHI BHOPAL EXPRESS  RECORD \n");
     while ((i = fgetc(fp)) != (char)EOF)
       printf("%c", i);
@@ -334,7 +338,7 @@ void show_record()
     {
       printf("cannot find/open file");
     }
-    i = fgetc(fp);
+    // i = fgetc(fp);
     printf("\n\n AMBARNATH EXPRESS  RECORD \n");
     while ((i = fgetc(fp)) != (char)EOF)
       printf("%c", i);
@@ -351,7 +355,7 @@ void show_record()
     {
       printf("cannot find/open file");
     }
-    i = fgetc(fp);
+    //  i = fgetc(fp);
     printf("\n\n MUMBAI EXPRESS  RECORD \n");
     while ((i = fgetc(fp)) != (char)EOF)
       printf("%c", i);
@@ -367,7 +371,7 @@ void show_record()
     {
       printf("cannot find/open file");
     }
-    i = fgetc(fp);
+    // i = fgetc(fp);
     printf("\n\n VANDE BHARAT EXPRESS  RECORD \n");
     while ((i = fgetc(fp)) != (char)EOF)
       printf("%c", i);
@@ -384,7 +388,7 @@ void show_record()
     {
       printf("cannot find/open file");
     }
-    i = fgetc(fp);
+    // i = fgetc(fp);
     printf("\n\n JAN SHATABDI  RECORD \n");
     while ((i = fgetc(fp)) != (char)EOF)
       printf("%c", i);
@@ -403,7 +407,7 @@ void show_record()
 }
 
 //-----------------------------------------------------------------------------
-//FOR BOOK TRAINS 
+// FOR BOOK TRAINS
 
 void booktrain()
 {
@@ -429,7 +433,7 @@ void booktrain()
   fclose(fp);
 
   //-------------------------------------------------------------------------
-  //TRAINS SELECT MENU
+  // TRAINS SELECT MENU
 
   printf("\n\n   \t\t\t\t      Please  Choose  A Train For Journey\n\n");
   printf("\t\t\t===============================================\n");
@@ -442,7 +446,7 @@ void booktrain()
   printf("\t\t\t||     Press <7> For  Vande Bharat Express   ||\n");
   printf("\t\t\t||     Press <8> For  Mumbai CST Terminal    ||\n");
   printf("\t\t\t||===========================================||\n");
-//---------------------------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------------------------
   char ch5;
 
   printf("\n\n\t\tSelect Your Choice:-\t\n\n");
@@ -519,9 +523,8 @@ void booktrain()
 
 } // void booktrainclose
 
-
 //-------------------------------------------------------------------
-//SHOW HISTORY LAST 3 BOOK TRAINS
+// SHOW HISTORY LAST 3 BOOK TRAINS
 
 void bookedtrain()
 {
@@ -541,7 +544,7 @@ void bookedtrain()
   printf("%c", i);
 
   fclose(fp1);
-//---------------------------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------------------------
   FILE *fp;
   fp = fopen("patna_eexpress.txt", "r");
 
@@ -556,7 +559,7 @@ void bookedtrain()
   printf("%c", i);
 
   fclose(fp);
-//---------------------------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------------------------
   FILE *fp2;
 
   fp2 = fopen("punjab_mail_express.txt", "r");
@@ -572,7 +575,7 @@ void bookedtrain()
   printf("%c", i);
 
   fclose(fp2);
-//---------------------------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------------------------
   FILE *fp3;
   fp3 = fopen("newdelhi_express.txt", "r");
 
@@ -587,7 +590,7 @@ void bookedtrain()
   printf("%c", i);
 
   fclose(fp3);
-//---------------------------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------------------------
   FILE *fp4;
 
   fp4 = fopen("ambarnath_express.txt", "r");
@@ -619,12 +622,12 @@ void canceltrain()
   printf("\t\t\t||  Press <2> For Cancel janata Express       ||\n");
   printf("\t\t\t||  Press <3> For Punjab Mail Express         ||\n");
   printf("\t\t\t||  Press <4> For Cancel New Delhi B Expr     ||\n");
-  printf("\t\t\t||  Press <4> For Cancel AmbarNath Expr       ||\n");
-  printf("\t\t\t||  Press <5> For Cancel Mumbai CST           ||\n");
-  printf("\t\t\t||  Press <6> For Cancel Vande Bharat Expres  ||\n");
+  printf("\t\t\t||  Press <5> For Cancel AmbarNath Expr       ||\n");
+  printf("\t\t\t||  Press <6> For Cancel Mumbai CST           ||\n");
+  printf("\t\t\t||  Press <7> For Cancel Vande Bharat Expres  ||\n");
   printf("\t\t\t||  Press <8> For Cancel Jan Shatab DI Expr   ||\n");
   printf("\t\t\t||============================================||\n");
-//---------------------------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------------------------
   int f2;
   printf("\n\nSelect Your Choice:-\t");
   scanf("%d", &f2);
@@ -667,7 +670,7 @@ void canceltrain()
 }
 
 //-------------------------------------------------------------
-//DELETING TRAINS
+// DELETING TRAINS
 
 void update_patna_express()
 
@@ -1624,68 +1627,285 @@ void patna_express()
     printf("\n\n\t\t\tGone Back To Menu Page");
 
     printf("\n\n\t\t\tTicket Booked Sucessfully");
-//---------------------------------------------------------------------------
- //END HERE OF INSERT AND DELETE FUNCTIONS
+    //---------------------------------------------------------------------------
+    // END HERE OF INSERT AND DELETE FUNCTIONS
     {
       menucall();
     }
   }
 }
 
+/*
+void change()
+{
 
+  printf("\n\n   \t\t\t\t   Update Any Chances in Booked Tain\n\n");
+  printf("\t\t\t====================================================\n");
+  printf("\t\t\t||    Press 1 For Update Janata Express          ||\n");
+  printf("\t\t\t||    Press 2 For Update Patna Express           ||\n");
+  printf("\t\t\t||    Press 3 For Update jan Shatab Di Express   ||\n");
+  printf("\t\t\t||   Press 4 For Update Vande Bharat Express     ||\n");
+  printf("\t\t\t||===============================================||\n");
+
+  int zo;
+  printf("\n\nEnter Your Choice:-\t");
+  scanf("%d", &zo);
+  switch (zo)
+  {
+  case 1:
+    changepatna();
+    break;
+
+  case 2:
+    changejanata();
+    break;
+    break;
+  case 3:
+    changemumbai();
+    break;
+
+  case 4:
+    changevande();
+    break;
+  }
+}
+
+void changevande()
+{
+  struct per person;
+  char n[20], field[20], newdata[20], ch, field1[22], field2[22], field3[22];
+  FILE *fp, *fp1;
+  fp = fopen("vandebharat_express.txt", "r+");
+  if (fp == NULL)
+  {
+    printf("\n cannot open file");
+  }
+  printf("\n\n Enter Person Whose You Want To Update\n");
+  scanf("%s", n);
+
+  while (fscanf(fp, "%s %s %s %s", &person.codei, &person.namei, &person.agei, &person.ph) != EOF)
+
+    if (strcmp(&person.namei, n) == 0)
+
+    {
+      printf("\n\n\tRecord Found\n");
+
+      printf("%s\n %s\n %s\n %s\n", &person.namei, &person.codei, &person.agei, &person.ph);
+
+      printf("\n\nEnter Field Which You Want To Update\n");
+      scanf("%s", field);
+
+      // printf("\nenter field which you want to updarwe");
+      // scanf("%s",field2);
+
+      if ((strcmp(field, "namei") == 0) || (strcmp(field1, "codei") == 0) || (strcmp(field2, "agei") == 0) || (strcmp(field3, "ph") == 0))
+      {
+        printf("\n\nEnter New Data For Name");
+        scanf("%s", person.namei);
+
+        // printf("\nenter new data for train code");
+        // scanf("%s",person.codei);
+        //  printf("\nenter new data for age");
+        // scanf("%s",person.agei);
+        // printf("\nenter new data for contact number");
+        // scanf("%s",person.ph);
+
+        fp1 = fopen("vandebharat_express.txt", "r+");
+        fprintf(fp1, "%s\n %s\n %s\n %s\n", &person.namei, &person.codei, &person.agei, &person.ph);
+
+        printf("\n\n\t\tRecord Updated");
+
+        printf("\n\n\t\tReturned Back To Main Menu");
+
+        menucall();
+      }
+
+      else
+      {
+        printf("\n\nRecord Not Found");
+      }
+    }
+
+  fclose(fp);
+  fclose(fp1);
+}
+
+void changemumbai()
+{
+  struct per person;
+  char n[20], field[20], newdata[20], ch, field1[22], field2[22], field3[22];
+  FILE *fp, *fp1;
+  fp = fopen("janshatab_express.txt", "r+");
+  if (fp == NULL)
+  {
+    printf("\n cannot open file");
+  }
+  printf("\n\n Enter Person Whose You Want To Update\n");
+  scanf("%s", n);
+
+  while (fscanf(fp, "%s %s %s %s", &person.codei, &person.namei, &person.agei, &person.ph) != EOF)
+
+    if (strcmp(&person.namei, n) == 0)
+
+    {
+      printf("\n\n\tRecord Found\n");
+
+      printf("%s\n %s\n %s\n %s\n", &person.namei, &person.codei, &person.agei, &person.ph);
+
+      printf("\n\nEnter Field Which You Want To Update\n");
+      scanf("%s", field);
+
+      // printf("\nenter field which you want to updarwe");
+      // scanf("%s",field2);
+
+      if ((strcmp(field, "namei") == 0) || (strcmp(field1, "codei") == 0) || (strcmp(field2, "agei") == 0) || (strcmp(field3, "ph") == 0))
+      {
+        printf("\n\nEnter New Data For Name");
+        scanf("%s", person.namei);
+
+        // printf("\nenter new data for train code");
+        // scanf("%s",person.codei);
+        //  printf("\nenter new data for age");
+        // scanf("%s",person.agei);
+        // printf("\nenter new data for contact number");
+        // scanf("%s",person.ph);
+
+        fp1 = fopen("janshatab_express.txt", "r+");
+        fprintf(fp1, "%s\n %s\n %s\n %s\n", &person.namei, &person.codei, &person.agei, &person.ph);
+
+        printf("\n\n\t\tRecord Updated");
+
+        printf("\n\n\t\tReturned Back To Main Menu");
+
+        menucall();
+      }
+
+      else
+      {
+        printf("\n\nRecord Not Found");
+      }
+    }
+
+  fclose(fp);
+  fclose(fp1);
+}
+
+void changejanata()
+{
+  struct per person;
+  char n[20], field[20], newdata[20], ch, field1[22], field2[22], field3[22];
+  FILE *fp, *fp1;
+  fp = fopen("patna_eexpress.txt", "r+");
+  if (fp == NULL)
+  {
+    printf("\n cannot open file");
+  }
+  printf("\n\n Enter Person Whose You Want To Update\n");
+  scanf("%s", n);
+
+  while (fscanf(fp, "%s %s %s %s", &person.codei, &person.namei, &person.agei, &person.ph) != EOF)
+
+    if (strcmp(&person.namei, n) == 0)
+
+    {
+      printf("\n\n\tRecord Found\n");
+
+      printf("%s\n %s\n %s\n %s\n", &person.namei, &person.codei, &person.agei, &person.ph);
+
+      printf("\n\nEnter Field Which You Want To Update\n");
+      scanf("%s", field);
+
+      // printf("\nenter field which you want to updarwe");
+      // scanf("%s",field2);
+
+      if ((strcmp(field, "namei") == 0) || (strcmp(field1, "codei") == 0) || (strcmp(field2, "agei") == 0) || (strcmp(field3, "ph") == 0))
+      {
+        printf("\n\nEnter New Data For Name");
+        scanf("%s", person.namei);
+        // printf("\nenter new data for train code");
+        // scanf("%s",person.codei);
+        //  printf("\nenter new data for age");
+        // scanf("%s",person.agei);
+        // printf("\nenter new data for contact number");
+        // scanf("%s",person.ph);
+
+        fp1 = fopen("patna_eexpress.txt", "r+");
+        fprintf(fp1, "%s\n %s\n %s\n %s\n", &person.namei, &person.codei, &person.agei, &person.ph);
+
+        printf("\n\n\t\tRecord Updated");
+
+        printf("\n\n\t\tReturned Back To Main Menu");
+
+        menucall();
+      }
+
+      else
+      {
+        printf("\n\nRecord Not Found");
+      }
+    }
+
+  fclose(fp);
+  fclose(fp1);
+}
 
 void changepatna()
 {
-	struct per person;
-char n[20],field[20],newdata[20],ch;
-FILE *fp,*fp1;
-fp=fopen("janata_express.txt ","r+");  
-if (fp==NULL)
-{
-	printf("\n cannot open file");
-}
-	printf("\n enter person whose you want to update");
-	scanf("%s",n);
-	
-	
-while(fscanf(fp,"%s %s %s %s",&person.codei,&person.namei,&person.agei,&person.ph)!=EOF)
+  struct per person;
+  char n[20], field[20], newdata[20], ch, field1[22], field2[22], field3[22];
+  FILE *fp, *fp1;
+  fp = fopen("janata_express.txt ", "r+");
+  if (fp == NULL)
+  {
+    printf("\n cannot open file");
+  }
+  printf("\n\n Enter Person Whose You Want To Update\n");
+  scanf("%s", n);
 
-if(strcmp(&person.namei,n)==0)
-	
-{ 
-  printf("Record Found");
-	
-	 printf("%s %s %s %s",&person.namei,&person.codei,&person.agei,&person.ph);
-	 
-	 printf("\nenter field which you want to updarwe");
-	 scanf("%s",field);
-	 if(strcmp(field,"namei")==0)
-	 {
-	   printf("\nenter new data");
-	   scanf("%s",person.namei);
-	  	   fp1=fopen("janata_express.txt ","r+");
-	    fprintf(fp1,"%s\n %s\n %s\n %s\n",&person.namei,&person.codei,&person.agei,&person.ph);
-	 
-	 
-	 printf("record updated");
-}
+  while (fscanf(fp, "%s %s %s %s", &person.codei, &person.namei, &person.agei, &person.ph) != EOF)
 
-else 
-{
-	printf("record not found");
+    if (strcmp(&person.namei, n) == 0)
+
+    {
+      printf("\n\n\tRecord Found\n");
+
+      printf("%s\n %s\n %s\n %s\n", &person.namei, &person.codei, &person.agei, &person.ph);
+
+      printf("\n\nEnter Field Which You Want To Update\n");
+      scanf("%s", field);
+
+      // printf("\nenter field which you want to updarwe");
+      // scanf("%s",field2);
+
+      if ((strcmp(field, "namei") == 0) || (strcmp(field1, "codei") == 0) || (strcmp(field2, "agei") == 0) || (strcmp(field3, "ph") == 0))
+      {
+        printf("\n\nEnter New Data For Name");
+        scanf("%s", person.namei);
+
+        // printf("\nenter new data for train code");
+        // scanf("%s",person.codei);
+        //  printf("\nenter new data for age");
+        // scanf("%s",person.agei);
+        // printf("\nenter new data for contact number");
+        // scanf("%s",person.ph);
+
+        fp1 = fopen("janata_express.txt ", "r+");
+        fprintf(fp1, "%s\n %s\n %s\n %s\n", &person.namei, &person.codei, &person.agei, &person.ph);
+
+        printf("\n\n\t\tRecord Updated");
+
+        printf("\n\n\t\tReturned Back To Main Menu");
+
+        menucall();
+      }
+
+      else
+      {
+        printf("\n\nRecord Not Found");
+      }
+    }
+
+  fclose(fp);
+  fclose(fp1);
 }
-	 
-	
-	 {
-	 	menucall;
-	 } 
-	 
-}
- 
-	
-	 
-fclose(fp);	 
-fclose(fp1);
-	 
-	
-}
+   */
